@@ -1,93 +1,67 @@
-<a href="https://demo-nextjs-with-supabase.vercel.app/">
-  <img alt="Next.js and Supabase Starter Kit - the fastest way to build apps with Next.js and Supabase" src="https://demo-nextjs-with-supabase.vercel.app/opengraph-image.png">
-  <h1 align="center">Next.js and Supabase Starter Kit</h1>
-</a>
+# Next BlockEditor App
 
-<p align="center">
- The fastest way to build apps with Next.js and Supabase
-</p>
+## Installation & Usage
 
-<p align="center">
-  <a href="#features"><strong>Features</strong></a> ·
-  <a href="#demo"><strong>Demo</strong></a> ·
-  <a href="#deploy-to-vercel"><strong>Deploy to Vercel</strong></a> ·
-  <a href="#clone-and-run-locally"><strong>Clone and run locally</strong></a> ·
-  <a href="#feedback-and-issues"><strong>Feedback and issues</strong></a>
-  <a href="#more-supabase-examples"><strong>More Examples</strong></a>
-</p>
-<br/>
+To begin, clone the tiptap-templates repository from GitHub using the following command:
 
-## Features
+```bash
+git clone git@github.com:ueberdosis/tiptap-templates.git
+```
 
-- Works across the entire [Next.js](https://nextjs.org) stack
-  - App Router
-  - Pages Router
-  - Middleware
-  - Client
-  - Server
-  - It just works!
-- supabase-ssr. A package to configure Supabase Auth to use cookies
-- Styling with [Tailwind CSS](https://tailwindcss.com)
-- Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
-  - Environment variables automatically assigned to Vercel project
+This command clones the entire repository, providing access to all the Tiptap templates currently available. The block
+editor template is located in `templates/next-block-editor-app`.
 
-## Demo
+Proceed with the following steps:
 
-You can view a fully working demo at [demo-nextjs-with-supabase.vercel.app](https://demo-nextjs-with-supabase.vercel.app/).
+```bash
+# Duplicate the example environment file and adjust the necessary settings in the .env file
+# Ensure the inclusion of your Tiptap cloud token and application IDs in the .env file
+cp .env.example .env
 
-## Deploy to Vercel
+# Install project dependencies
+npm install
 
-Vercel deployment will guide you through creating a Supabase account and project.
+# Launch the development server
+npm run dev
 
-After installation of the Supabase integration, all relevant environment variables will be assigned to the project so the deployment is fully functioning.
+# Access the application at http://localhost:3000
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&project-name=nextjs-with-supabase&repository-name=nextjs-with-supabase&demo-title=nextjs-with-supabase&demo-description=This%20starter%20configures%20Supabase%20Auth%20to%20use%20cookies%2C%20making%20the%20user's%20session%20available%20throughout%20the%20entire%20Next.js%20app%20-%20Client%20Components%2C%20Server%20Components%2C%20Route%20Handlers%2C%20Server%20Actions%20and%20Middleware.&demo-url=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2F&external-id=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fwith-supabase&demo-image=https%3A%2F%2Fdemo-nextjs-with-supabase.vercel.app%2Fopengraph-image.png&integration-ids=oac_VqOgBHqhEoFTPzGkPd7L0iH6)
+> [!Important]
+> If you do not have access to Tiptap's paid [Content AI](https://tiptap.dev/product/content-ai) features, you will need to remove or exclude the Content AI extension from this template. For your convenience, we have prepared the `free-version` branch that is already configured without the paid extension. This template is designed to showcase UI possibilities and should be adapted to fit your project's requirements and access to [Tiptap features](https://tiptap.dev/pricing).
 
-The above will also clone the Starter kit to your GitHub, you can clone that locally and develop locally.
+## Usage Guidelines
 
-If you wish to just develop locally and not deploy to Vercel, [follow the steps below](#clone-and-run-locally).
+The BlockEditor template is a fully functional Next.js application, akin to Notion or Dropbox Paper, suitable as a
+foundation for your projects or as a base for a custom editor.
 
-## Clone and run locally
+Key features of the template include:
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+- A Next.js setup with TypeScript
+- A basic Tailwind setup for styling
+- Pre-configured links to Tiptap Cloud for collaboration and data persistence.
+- A Block Editor with a basic set of nodes and marks but also more advanced features like
+  - Drag & Drop via a DragHandle
+  - A fleshed out menu bar for text editing and formatting
+  - Link editing
+  - mocked image uploading that can be hooked up to your backend
 
-2. Create a Next.js app using the Supabase Starter template npx command
+You can either start a fresh project from this editor or copy over the editor or parts you need to your own projects.
+Make sure to check out the [Tiptap documentation](https://tiptap.dev) for more information on how to use Tiptap.
 
-   ```bash
-   npx create-next-app -e with-supabase
-   ```
+## Folder structure
 
-3. Use `cd` to change into the app's directory
+The template is structured as a Next.js app with a few additional folders and files:
 
-   ```bash
-   cd name-of-new-app
-   ```
-
-4. Rename `.env.local.example` to `.env.local` and update the following:
-
-   ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
-   ```
-
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
-
-5. You can now run the Next.js local development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   The starter kit should now be running on [localhost:3000](http://localhost:3000/).
-
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
-
-## Feedback and issues
-
-Please file feedback and issues over on the [Supabase GitHub org](https://github.com/supabase/supabase/issues/new/choose).
-
-## More Supabase examples
-
-- [Next.js Subscription Payments Starter](https://github.com/vercel/nextjs-subscription-payments)
-- [Cookie-based Auth and the Next.js 13 App Router (free course)](https://youtube.com/playlist?list=PL5S4mPUpp4OtMhpnp93EFSo42iQ40XjbF)
-- [Supabase Auth and the Next.js App Router](https://github.com/supabase/supabase/tree/master/examples/auth/nextjs)
+- **components** Includes all React components used in the app
+  - **BlockEditor** the wrapping BlockEditor setup component
+  - **menus** a set of menus used in the editor (for example Link, Text and DragHandle menus)
+  - **panels** popover menus used in menu bars for example the Colorpicker or Link editor
+  - **Sidebar** the sidebar component
+  - **TableOfContents** the table of contents component used for navigation
+  - **ui** general reusable UI components used across the application
+- **context** A place to put React contexts that are used in the app
+- **extensions** Includes all Tiptap extensions used in the app including their NodeViews and logic parts
+- **hooks** Including general hooks used for app and editor setup
+- **lib** Includes helper functions
+- **styles** Includes global CSS styles with Tailwind to setup richtext styling

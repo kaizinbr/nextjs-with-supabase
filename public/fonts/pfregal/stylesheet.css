@@ -1,0 +1,144 @@
+@font-face {
+    font-family: 'PF Regal Text Pro RegularA';
+    src: url('PFRegalTextPro-RegularA.eot');
+    src: local('PFRegalTextPro-RegularA'),
+        url('PFRegalTextPro-RegularA.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-RegularA.woff2') format('woff2'),
+        url('PFRegalTextPro-RegularA.woff') format('woff'),
+        url('PFRegalTextPro-RegularA.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro';
+    src: url('PFRegalTextPro-Bold.eot');
+    src: local('PFRegalTextPro-Bold'),
+        url('PFRegalTextPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-Bold.woff2') format('woff2'),
+        url('PFRegalTextPro-Bold.woff') format('woff'),
+        url('PFRegalTextPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro';
+    src: url('PFRegalTextPro-Medium.eot');
+    src: local('PFRegalTextPro-Medium'),
+        url('PFRegalTextPro-Medium.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-Medium.woff2') format('woff2'),
+        url('PFRegalTextPro-Medium.woff') format('woff'),
+        url('PFRegalTextPro-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro RegularB';
+    src: url('PFRegalTextPro-RegularBItalic.eot');
+    src: local('PFRegalTextPro-RegularBItalic'),
+        url('PFRegalTextPro-RegularBItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-RegularBItalic.woff2') format('woff2'),
+        url('PFRegalTextPro-RegularBItalic.woff') format('woff'),
+        url('PFRegalTextPro-RegularBItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro';
+    src: url('PFRegalTextPro-BlackItalic.eot');
+    src: local('PFRegalTextPro-BlackItalic'),
+        url('PFRegalTextPro-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-BlackItalic.woff2') format('woff2'),
+        url('PFRegalTextPro-BlackItalic.woff') format('woff'),
+        url('PFRegalTextPro-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro';
+    src: url('PFRegalTextPro-Black.eot');
+    src: local('PFRegalTextPro-Black'),
+        url('PFRegalTextPro-Black.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-Black.woff2') format('woff2'),
+        url('PFRegalTextPro-Black.woff') format('woff'),
+        url('PFRegalTextPro-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro UBlack';
+    src: url('PFRegalTextPro-UBlack.eot');
+    src: local('PFRegalTextPro-UBlack'),
+        url('PFRegalTextPro-UBlack.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-UBlack.woff2') format('woff2'),
+        url('PFRegalTextPro-UBlack.woff') format('woff'),
+        url('PFRegalTextPro-UBlack.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro';
+    src: url('PFRegalTextPro-MediumItalic.eot');
+    src: local('PFRegalTextPro-MediumItalic'),
+        url('PFRegalTextPro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-MediumItalic.woff2') format('woff2'),
+        url('PFRegalTextPro-MediumItalic.woff') format('woff'),
+        url('PFRegalTextPro-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro UBlack';
+    src: url('PFRegalTextPro-UBlackItalic.eot');
+    src: local('PFRegalTextPro-UBlackItalic'),
+        url('PFRegalTextPro-UBlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-UBlackItalic.woff2') format('woff2'),
+        url('PFRegalTextPro-UBlackItalic.woff') format('woff'),
+        url('PFRegalTextPro-UBlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro RegularB';
+    src: url('PFRegalTextPro-RegularB.eot');
+    src: local('PFRegalTextPro-RegularB'),
+        url('PFRegalTextPro-RegularB.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-RegularB.woff2') format('woff2'),
+        url('PFRegalTextPro-RegularB.woff') format('woff'),
+        url('PFRegalTextPro-RegularB.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro RegularA';
+    src: url('PFRegalTextPro-RegularAItalic.eot');
+    src: local('PFRegalTextPro-RegularAItalic'),
+        url('PFRegalTextPro-RegularAItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-RegularAItalic.woff2') format('woff2'),
+        url('PFRegalTextPro-RegularAItalic.woff') format('woff'),
+        url('PFRegalTextPro-RegularAItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PF Regal Text Pro';
+    src: url('PFRegalTextPro-BoldItalic.eot');
+    src: local('PFRegalTextPro-BoldItalic'),
+        url('PFRegalTextPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('PFRegalTextPro-BoldItalic.woff2') format('woff2'),
+        url('PFRegalTextPro-BoldItalic.woff') format('woff'),
+        url('PFRegalTextPro-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+

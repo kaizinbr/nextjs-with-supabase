@@ -2,26 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 200 20% 98%;
-    --btn-background: 200 10% 91%;
-    --btn-background-hover: 200 10% 89%;
-    --foreground: 200 50% 3%;
-  }
+@import "./editor.css";
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: 200 50% 3%;
-      --btn-background: 200 10% 9%;
-      --btn-background-hover: 200 10% 12%;
-      --foreground: 200 20% 96%;
-    }
-  }
+@import "../public/fonts/pfregal/stylesheet.css";
+        
+.react-colorful {
+    width: 100% !important;
 }
 
-@layer base {
-  * {
-    @apply border-foreground/20;
-  }
+[data-reference-hidden] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+::-webkit-scrollbar {
+    @apply w-1 h-1 bg-neutral-500/20;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-neutral-500/50 rounded-full;
+}
+
+input[type="range"] {
+    @apply h-2.5 bg-neutral-200 border-0 rounded appearance-none active:bg-neutral-300 transition-all;
+    @apply dark:bg-neutral-700 dark:active:bg-neutral-600;
+
+    &::-webkit-slider-thumb {
+        @apply appearance-none w-3 h-5 bg-neutral-800 rounded-full active:bg-neutral-900 active:w-4 active:h-6 transition-all;
+        @apply dark:bg-neutral-100 dark:active:bg-stone-200;
+    }
+}
+
+.PFRegalTextPro {
+    font-family: 'PF Regal Text Pro';
+    font-weight: 400;
+    font-style: italic;
 }
