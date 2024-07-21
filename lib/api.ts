@@ -14,11 +14,14 @@ export class API {
             .upload(filePath, file);
 
         if (uploadError) {
+            console.log("Error uploading image: ", uploadError);
             throw uploadError;
         }
         const imageUrl = supabase.storage
             .from("images")
-            .getPublicUrl(`${file.lastModified}-${file.name}`);
+            .getPublicUrl(filePath);
+
+        console.log(imageUrl);
 
         return imageUrl.data.publicUrl;
     };

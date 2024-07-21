@@ -1,5 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { createClient } from "@/utils/supabase/client";
+import Avatar from "./avatar";
 
 interface Post {
     title: string;
@@ -10,6 +15,18 @@ interface Post {
     created_at: string;
     updated_at: string;
     room: string;
+    image: string;
+}
+
+interface User {
+    id: string;
+    updated_at: string;
+    username: string;
+    full_name: string;
+    avatar_url: string;
+    website: string;
+    bio: string;
+    pronouns: string;
 }
 
 export default function CardPost({
@@ -19,27 +36,83 @@ export default function CardPost({
     post: any;
     edit?: Boolean;
 }) {
+    const [userProfile, setUserProfile] = useState<User | null>(null);
+    const [paragraph, setParagraph] = useState<any | null>(null);
+
+    // console.log(post);
+
+    useEffect(() => {
+        async function fetchParagraph() {
+            const extractParagraphFromEditor =
+                post.content.content.find(
+                    (item: any) => item.type === "paragraph" && item.content
+                ) || null;
+
+            console.log(extractParagraphFromEditor);
+
+            setParagraph(extractParagraphFromEditor);
+        }
+
+        fetchParagraph();
+    }, []);
+
+    useEffect(() => {
+        async function fetchUserProfile() {
+            const supabase = createClient();
+            const { data, error } = await supabase
+                .from("profiles")
+                .select("*")
+                .eq("id", post.author_id)
+                .single();
+
+            if (error) {
+                console.log(error);
+                return null;
+            }
+
+            setUserProfile(data);
+        }
+
+        fetchUserProfile();
+    }, []);
+
+    // console.log(userProfile);
+
     return (
-        <div className="flex flex-col gap-2 border border-woodsmoke-700 rounded-3xl overflow-hidden">
+        <div className="flex flex-col gap-2 border border-woodsmoke-200 rounded-3xl overflow-hidden">
             <Link href={`/${edit ? "create" : "chapter"}/${post.room}`}>
-                <picture>
-                    <Image
-                        src="/img.jpg"
-                        alt="Authentication"
-                        width={500}
-                        height={500}
-                    />
-                </picture>
+                {post.image && (
+                    <picture>
+                        <Image
+                            src={post.image}
+                            alt="Authentication"
+                            width={500}
+                            height={500}
+                        />
+                    </picture>
+                )}
                 <div className="flex flex-col gap-3 p-3">
                     <span className=" text-xs text-stone-500">
                         room /{post.room}
                     </span>
                     <h1 className="text-3xl PFRegalTextPro">{post.title}</h1>
-                    <p className="text-sm">
-                        This is a starter template for Supabase and Mantine. It
-                        includes a basic setup for authentication and data
-                        fetching...
-                    </p>
+                    {paragraph && (
+                        <p className="text-sm line-clamp-3">{paragraph.content![0].text}</p>
+                    )}
+                </div>
+                <div className="flex flex-row items-center gap-1 p-3 pt-0">
+                    {userProfile && (
+                        <>
+                            <Avatar
+                                size={36}
+                                url={userProfile.avatar_url}
+                                username={userProfile.username}
+                            />
+                            <p className="text-sm PFRegalTextPro">
+                                {userProfile!.username}
+                            </p>
+                        </>
+                    )}
                 </div>
             </Link>
             {edit && (

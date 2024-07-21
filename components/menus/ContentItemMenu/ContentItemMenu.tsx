@@ -32,16 +32,16 @@ export const ContentItemMenu = ({ editor }: ContentItemMenuProps) => {
     }, [editor, menuOpen]);
 
     return (
-        <DragHandle
-            pluginKey="ContentItemMenu"
-            editor={editor}
-            onNodeChange={data.handleNodeChange}
-            tippyOptions={{
-                offset: [-2, 16],
-                zIndex: 99,
-            }}
-        >
-            <div className="flex items-center gap-0.5">
+        // <DragHandle
+        //     pluginKey="ContentItemMenu"
+        //     editor={editor}
+        //     onNodeChange={data.handleNodeChange}
+        //     tippyOptions={{
+        //         offset: [-2, 2],
+        //         zIndex: 99,
+        //     }}
+        // >
+            <div className="flex items-center flex-col gap-0.5">
                 <Toolbar.Button onClick={actions.handleAdd}>
                     <Icon name="Plus" />
                 </Toolbar.Button>
@@ -89,6 +89,6 @@ export const ContentItemMenu = ({ editor }: ContentItemMenuProps) => {
                     </Popover.Content>
                 </Popover.Root>
             </div>
-        </DragHandle>
+        // </DragHandle>
     );
 };

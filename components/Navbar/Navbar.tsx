@@ -110,7 +110,7 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                     <div className="">
                         <Link
                             href="/login"
-                            className="py-2 px-4 rounded-md bg-stone-600/30"
+                            className="py-2 px-2 rounded-md bg-stone-600/30"
                         >
                             Faça login ou cadastre-se
                         </Link>
@@ -134,8 +134,8 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                 unstyled
                                 className={`
                                         w-full flex flex-row items-center justify-start
-                                        py-3 px-4 rounded-md
-                                        hover:bg-woodsmoke-600 bg-transparent
+                                        py-3 px-2 rounded-md
+                                        hover:bg-woodsmoke-300 bg-transparent
                                         transition-all duration-300
                                     `}
                             />
@@ -146,8 +146,8 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                 unstyled
                                 className={`
                                         w-full flex flex-row items-center justify-start
-                                        py-3 px-4 rounded-md
-                                        hover:bg-woodsmoke-600 bg-transparent
+                                        py-3 px-2 rounded-md
+                                        hover:bg-woodsmoke-300 bg-transparent
                                         transition-all duration-300
                                     `}
                             />
@@ -158,8 +158,8 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                 unstyled
                                 className={`
                                         w-full flex flex-row items-center justify-start
-                                        py-3 px-4 rounded-md
-                                        hover:bg-woodsmoke-600 bg-transparent
+                                        py-3 px-2 rounded-md
+                                        hover:bg-woodsmoke-300 bg-transparent
                                         transition-all duration-300
                                     `}
                             />
@@ -170,8 +170,8 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                 unstyled
                                 className={`
                                         w-full flex flex-row items-center justify-start
-                                        py-3 px-4 rounded-md
-                                        hover:bg-woodsmoke-600 bg-transparent
+                                        py-3 px-2 rounded-md
+                                        hover:bg-woodsmoke-300 bg-transparent
                                         transition-all duration-300
                                     `}
                             />
@@ -182,8 +182,8 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                 unstyled
                                 className={`
                                         w-full flex flex-row items-center justify-start
-                                        py-3 px-4 rounded-md
-                                        hover:bg-woodsmoke-600 bg-transparent
+                                        py-3 px-2 rounded-md
+                                        hover:bg-woodsmoke-300 bg-transparent
                                         transition-all duration-300
                                     `}
                             />
@@ -193,10 +193,12 @@ export default function HeaderTabs({ user }: { user: User | null }) {
             </Drawer>
 
             <button onClick={open} className="fixed z-50 top-4 left-4">
-                {user === null ? (
-                    <Menu />
+                {user == null ? (
+                    <MenuIcon />
                 ) : (
-                    <AvatarB size={38} url={avatar_url} />
+                    <div className="border-2 rounded-full border-woodsmoke-300">
+                        <AvatarB size={38} url={avatar_url} />
+                    </div>
                 )}
             </button>
         </>
@@ -546,7 +548,7 @@ export function Index({ user }: { user: User | null }) {
                 className=""
             >
                 {user === null ? (
-                    <Menu />
+                    <MenuIcon />
                 ) : (
                     <AvatarB size={26} url={avatar_url} />
                 )}

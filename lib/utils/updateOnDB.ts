@@ -10,7 +10,7 @@ export default function updateOnDB(editor: any, room: any, supabase: any) {
                     .from("posts")
                     .select("*")
                     .eq("room", room);
-                console.log(exists);
+                // console.log(exists);
 
             if (exists.data?.length === 0) {
                 await supabase.from("posts").insert([
@@ -31,6 +31,7 @@ export default function updateOnDB(editor: any, room: any, supabase: any) {
                     console.log("Error updating post: ", error);
                     throw error;
                 }
+                // console.log(data)
             }
 
             

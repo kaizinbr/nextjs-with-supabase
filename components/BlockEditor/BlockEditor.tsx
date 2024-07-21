@@ -2,7 +2,6 @@
 
 import { EditorContent, PureEditorContent } from "@tiptap/react";
 import React, { useMemo, useRef, useEffect } from "react";
-
 import { LinkMenu } from "../menus";
 
 import { useBlockEditor } from "../../hooks/useBlockEditor";
@@ -21,13 +20,18 @@ import { ContentItemMenu } from "../menus/ContentItemMenu";
 
 import { createClient } from "@/utils/supabase/client";
 
-export const BlockEditor = ({ ydoc, provider, room }: TiptapProps) => {
+export const BlockEditor = ({
+    ydoc,
+    provider,
+    room,
+    initialContent,
+}: TiptapProps) => {
     const menuContainerRef = useRef(null);
     const editorRef = useRef<PureEditorContent | null>(null);
     const supabase = createClient();
 
     const { editor, users, characterCount, collabState, leftSidebar } =
-        useBlockEditor({ ydoc, provider, room, supabase });
+        useBlockEditor({ ydoc, provider, room, supabase, initialContent });
 
     const displayedUsers = users.slice(0, 3);
 
@@ -39,11 +43,10 @@ export const BlockEditor = ({ ydoc, provider, room }: TiptapProps) => {
         return null;
     }
 
-    console.log(editor.getJSON());
-
     return (
         <EditorContext.Provider value={providerValue}>
-            <div className="flex h-full" ref={menuContainerRef}>
+            <div className="flex h-full " ref={menuContainerRef}>
+                
                 <Sidebar
                     isOpen={leftSidebar.isOpen}
                     onClose={leftSidebar.close}
@@ -58,13 +61,14 @@ export const BlockEditor = ({ ydoc, provider, room }: TiptapProps) => {
                         isSidebarOpen={leftSidebar.isOpen}
                         toggleSidebar={leftSidebar.toggle}
                         room={room}
+                        editor={editor}
                     />
                     <EditorContent
                         editor={editor}
                         ref={editorRef as React.RefObject<HTMLDivElement>}
-                        className="flex-1 overflow-y-auto"
+                        className="flex-1 overflow-y-auto mt-20"
                     />
-                    <ContentItemMenu editor={editor} />
+                    {/* <ContentItemMenu editor={editor} /> */}
                     <LinkMenu editor={editor} appendTo={menuContainerRef} />
                     <TextMenu editor={editor} />
                     <ColumnsMenu editor={editor} appendTo={menuContainerRef} />

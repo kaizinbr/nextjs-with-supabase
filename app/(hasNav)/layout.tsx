@@ -17,7 +17,7 @@ export default async function Layout({
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar user={user} />
-            <div className="flex-1">
+            <div className="flex">
                 {children}
             </div>
             {/* <Footer /> */}

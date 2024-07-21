@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Open Sans Modified';
+    src: url('Open-Sans-Modified.otf');
+    src: local('Open-Sans-Modified'),
+        url('Open-Sans-Modified.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'LL Bradford';
+    src: url(BradfordLLWeb-Regular.woff);
+    src: local('BradfordLL'),
+        url('BradfordLLWeb-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LL Bradford';
+    src: url(BradfordLLWeb-Italic.woff);
+    src: local('BradfordLL'),
+        url('BradfordLLWeb-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}

@@ -16,7 +16,7 @@ const Gaveta = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
             <button
-                className="z-40 absolute right-3 top-32 text-neutral-300 p-2 rounded-full bg-default-fill"
+                className="z-40 absolute right-3 top-32 text-woodsmoke-700 p-2 rounded-full bg-default-fill"
                 onClick={toggleDrawer}
             >
                 <FaPen className="" />

@@ -4,8 +4,40 @@
 
 @import "./editor.css";
 
-@import "../public/fonts/pfregal/stylesheet.css";
-        
+
+
+
+html {
+    --title-font-family: "Helvetica", sans-serif;
+    --pr-font-family: 'PF Regal Text Pro RegularA';
+    --lora-font-family: 'Lora', serif;
+    --bradford-font-family: 'LL Bradford';
+    --gelica-font-family: 'gelica';
+}
+
+.gelica-menu {
+    font-family: "gelica", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.gelica {
+    font-family: "Gelica", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.gelica-title {
+    font-family: "gelica", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+/* body {
+    font-family: Open Sans Modified, sans-serif !important;
+}
+         */
 .react-colorful {
     width: 100% !important;
 }

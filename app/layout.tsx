@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { createClient } from "@/utils/supabase/server";
 
+import localFont from "next/font/local";
+
 
 import "cal-sans";
 import "@mantine/core/styles.css";
@@ -18,23 +20,67 @@ import "@fontsource/inter/700.css";
 import HeaderTabs from "@/components/Navbar/Navbar";
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://demos.tiptap.dev"),
-    title: "Tiptap block editor template",
-    description:
-        "Tiptap is a suite of open source content editing and real-time collaboration tools for developers building apps like Notion or Google Docs.",
-    robots: "noindex, nofollow",
-    icons: [{ url: "/favicon.svg" }],
-    twitter: {
-        card: "summary_large_image",
-        site: "@tiptap_editor",
-        creator: "@tiptap_editor",
-    },
-    openGraph: {
-        title: "Tiptap block editor template",
-        description:
-            "Tiptap is a suite of open source content editing and real-time collaboration tools for developers building apps like Notion or Google Docs.",
-    },
+    title: "Kaizin",
+    description: "Portfólio de Kaio Lucas, desenvolvedor front end e designer.",	
+    // openGraph: {
+    //     type: "website",
+    //     locale: "pt_BR",
+    //     url: "https://kaizin.vercel.app",
+    //     siteName: "Kaizin",
+    //     title: "Kaizin",
+    //     description: "Portfólio de Kaio Lucas, desenvolvedor front end e designer.",
+    //     images: [
+    //         {
+    //             url: "https://kaizin.vercel.app/site-banner.png",
+    //             width: 800,
+    //             height: 600,
+    //             alt: "Kaizin",
+    //         },
+    //     ],
+    // },
+    // twitter: {
+    //     site: "kaizin",
+    //     images: [
+    //         {
+    //             url: "https://kaizin.vercel.app/site-banner.png",
+    //             width: 800,
+    //             height: 600,
+    //             alt: "Kaizin",
+    //         },
+    //     ],
+    // },
+//     openGraph: {
+//         title: "Tiptap block editor template",
+//         description:
+//             "Tiptap is a suite of open source content editing and real-time collaboration tools for developers building apps like Notion or Google Docs.",
+//     },
+
 };
+
+// Font files can be colocated inside of `app`
+const myFont = localFont({
+    src: "../public/fonts/font-1.ttf",
+    display: "swap",
+});
+
+// export const metadata: Metadata = {
+//     metadataBase: new URL("https://demos.tiptap.dev"),
+//     title: "Tiptap block editor template",
+//     description:
+//         "Tiptap is a suite of open source content editing and real-time collaboration tools for developers building apps like Notion or Google Docs.",
+//     robots: "noindex, nofollow",
+//     icons: [{ url: "/favicon.svg" }],
+//     twitter: {
+//         card: "summary_large_image",
+//         site: "@tiptap_editor",
+//         creator: "@tiptap_editor",
+//     },
+//     openGraph: {
+//         title: "Tiptap block editor template",
+//         description:
+//             "Tiptap is a suite of open source content editing and real-time collaboration tools for developers building apps like Notion or Google Docs.",
+//     },
+// };
 
 export default async function RootLayout({
     children,
@@ -49,7 +95,11 @@ export default async function RootLayout({
             <head>
                 <ColorSchemeScript />
             </head>
-            <body className="flex flex-col h-full bg-woodsmoke-800 text-woodsmoke-200">
+            <body className={
+                
+                myFont.className +`
+                    flex flex-col h-full text-woodsmoke-700 bg-woodsmoke-100
+                `}>
                 <MantineProvider>
                     <main className="h-full">{children}</main>
                 </MantineProvider>

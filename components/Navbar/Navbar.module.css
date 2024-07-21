@@ -3,7 +3,7 @@
 @tailwind utilities; */
 
 .drawerContent {
-    background-color: rgb(40 40 40 / 0.8) !important;
+    background-color: rgb(231 231 231 / 0.8) !important;
     backdrop-filter: blur(50px);
 }
 
@@ -12,12 +12,12 @@
 }
 
 .dropdown {
-    background-color: rgb(40 40 40 / 0.8) !important;
+    background-color: rgb(231 231 231 / 0.8) !important;
     border-radius: 0.5rem;
 }
 
 .mantineMenuItem:hover {
-    background-color: rgb(40 40 40 / 1) !important;
+    background-color: rgb(231 231 231 / 1) !important;
 }
 
 .header {

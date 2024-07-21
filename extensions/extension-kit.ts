@@ -70,6 +70,9 @@ export const ExtensionKit = ({
     Selection,
     Heading.configure({
         levels: [1, 2, 3, 4, 5, 6],
+        // HTMLAttributes: {
+        //     class: "tk-gelica",
+        // }      
     }),
     HorizontalRule,
     StarterKit.configure({
@@ -98,9 +101,9 @@ export const ExtensionKit = ({
     CharacterCount.configure({ limit: 50000 }),
     TableOfContents,
     TableOfContentsNode,
-      ImageUpload.configure({
-        clientId: provider?.document?.clientID,
-      }),
+    // ImageUpload.configure({
+    //     clientId: provider?.document?.clientID,
+    // }),
     ImageBlock,
     FileHandler.configure({
         allowedMimeTypes: [
@@ -112,10 +115,11 @@ export const ExtensionKit = ({
         onDrop: (currentEditor, files, pos) => {
             files.forEach(async (file) => {
                 const url = await API.uploadImage(file);
+                console.log(file, url)
 
                 currentEditor
                     .chain()
-                    .setImageBlockAt({ pos, src: url ?? '' })
+                    .setImageBlockAt({ pos, src: url ?? "" })
                     .focus()
                     .run();
             });
@@ -123,13 +127,13 @@ export const ExtensionKit = ({
         onPaste: (currentEditor, files) => {
             files.forEach(async (file) => {
                 const url = await API.uploadImage(file);
-                // console.log(file)
+                console.log(file, url)
 
                 return currentEditor
                     .chain()
                     .setImageBlockAt({
                         pos: currentEditor.state.selection.anchor,
-                        src: url ?? '' ,
+                        src: url ?? "",
                     })
                     .focus()
                     .run();

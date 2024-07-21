@@ -80,10 +80,10 @@ export const Item = ({
   isActive?: boolean
 }) => {
   const className = cn(
-    'flex items-center gap-2 p-1.5 text-sm font-medium text-neutral-500 text-left bg-transparent w-full rounded',
+    'flex items-center gap-2 p-1.5 text-sm font-medium text-woodsmoke-700 text-left bg-transparent w-full rounded transition-all duration-200',
     !isActive && !disabled,
-    'hover:bg-neutral-100 hover:text-neutral-800 dark:hover:bg-neutral-900 dark:hover:text-neutral-200',
-    isActive && !disabled && 'bg-neutral-100 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-200',
+    'hover:bg-woodsmoke-800/50 hover:text-woodsmoke-200 dark:hover:bg-neutral-900 dark:hover:text-neutral-200',
+    isActive && !disabled && 'bg-woodsmoke-800/50 text-woodsmoke-700 dark:bg-neutral-900 dark:text-neutral-200',
     disabled && 'text-neutral-400 cursor-not-allowed dark:text-neutral-600',
   )
 

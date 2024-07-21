@@ -11,7 +11,7 @@ import { userColors, userNames } from "../lib/constants";
 import { randomElement } from "../lib/utils";
 import { EditorUser } from "../components/BlockEditor/types";
 import { useSidebar } from "./useSidebar";
-import { initialContent } from "../lib/data/initialContent";
+// import { initialContent } from "../lib/data/initialContent";
 import updateOnDB from "@/lib/utils/updateOnDB";
 
 declare global {
@@ -25,26 +25,26 @@ export const useBlockEditor = ({
     provider,
     room,
     supabase,
+    initialContent
 }: {
     ydoc: YDoc;
     provider?: TiptapCollabProvider | null | undefined;
     room?: string;
     supabase?: any;
+    initialContent?: any;
 }) => {
     const leftSidebar = useSidebar();
     const [collabState, setCollabState] = useState<WebSocketStatus>(
         WebSocketStatus.Connecting,
     );
 
+    // console.log(provider, "aaaa")
+
     const editor = useEditor(
         {
             autofocus: true,
             onCreate: ({ editor }) => {
-                provider?.on("synced", () => {
-                    if (editor.isEmpty) {
                         editor.commands.setContent(initialContent);
-                    }
-                });
             },
             onUpdate: ({ editor }) => {
                 updateOnDB(editor, room, supabase);
@@ -52,16 +52,6 @@ export const useBlockEditor = ({
             extensions: [
                 ...ExtensionKit({
                     provider,
-                }),
-                Collaboration.configure({
-                    document: ydoc,
-                }),
-                CollaborationCursor.configure({
-                    provider,
-                    user: {
-                        name: randomElement(userNames),
-                        color: randomElement(userColors),
-                    },
                 }),
             ],
             editorProps: {

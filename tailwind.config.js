@@ -14,6 +14,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ["Inter", ...defaultTheme.fontFamily.sans],
+                gelica: ["Gelica", ...defaultTheme.fontFamily.serif],
             },
             colors: {
                 woodsmoke: {
@@ -23,6 +24,7 @@ module.exports = {
                     300: "#9C9C9C",
                     400: "#888888",
                     500: "#6A6A6A",
+                    550: "#5B5B5B",
                     600: "#383838",
                     700: "#282828",
                     800: "#181818",

@@ -1,3 +1,5 @@
+
+const MillionLint = require('@million/lint');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   poweredByHeader: false,
@@ -6,32 +8,35 @@ const nextConfig = {
     // Dangerously allow production builds to successfully complete even if
     // your project has type errors.
     // !! WARN !!
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: true
   },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            dimensions: false,
-          },
-        },
-      ],
-    })
-
-    return config
+      use: [{
+        loader: "@svgr/webpack",
+        options: {
+          dimensions: false
+        }
+      }]
+    });
+    return config;
   },
   async redirects() {
-    return [
-      {
-        source: '/bCccDwkKkN',
-        destination: '/', // Matched parameters can be used in the destination
-        permanent: true,
-      },
-    ]
+    return [{
+      source: "/bCccDwkKkN",
+      destination: "/",
+      // Matched parameters can be used in the destination
+      permanent: true
+    }];
   },
-}
-
-module.exports = nextConfig
+  images: {
+    remotePatterns: [{
+      protocol: "https",
+      hostname: "ehgrxskoduebhqzayeii.supabase.co",
+      port: "",
+      pathname: "**"
+    }]
+  }
+};
+module.exports = nextConfig;
