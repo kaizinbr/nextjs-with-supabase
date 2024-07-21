@@ -177,7 +177,7 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                     </Link>
                             <Link
                                 // leftSection={<Settings size="1.3rem" className="mr-4" />}
-                                href="/settings"
+                                href="/manage"
                                 // unstyled
                                 className={`
                                         w-full flex flex-row items-center justify-start
