@@ -66,7 +66,7 @@ export const BlockEditor = ({
                     <EditorContent
                         editor={editor}
                         ref={editorRef as React.RefObject<HTMLDivElement>}
-                        className="flex-1 overflow-y-auto mt-20"
+                        className="flex-1 overflow-y-auto mt-20 min-h-full"
                     />
                     {/* <ContentItemMenu editor={editor} /> */}
                     <LinkMenu editor={editor} appendTo={menuContainerRef} />
