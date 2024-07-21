@@ -141,7 +141,7 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                     </Link>
                             <Link
                                 // leftSection={<FileText size="1.3rem" className="mr-4" />}
-                                href="/posts"
+                                href="/manage"
                                 // unstyled
                                 className={`
                                         w-full flex flex-row items-center justify-start
