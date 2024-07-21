@@ -83,12 +83,13 @@ export default function CardPost({
         <div className="flex flex-col gap-2 border border-woodsmoke-200 rounded-3xl overflow-hidden">
             <Link href={`/${edit ? "create" : "chapter"}/${post.room}`}>
                 {post.image && (
-                    <picture>
+                    <picture className="w-full">
                         <Image
                             src={post.image}
                             alt="Authentication"
                             width={500}
                             height={500}
+                            className="object-cover w-full max-h-[500px]"
                         />
                     </picture>
                 )}
