@@ -10,6 +10,9 @@ import "@mantine/core/styles.css";
 
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
+
+import SmoothWrapper from "@/components/SmoothWrapper";
+
 import "@fontsource/inter/100.css";
 import "@fontsource/inter/200.css";
 import "@fontsource/inter/300.css";
@@ -101,7 +104,9 @@ export default async function RootLayout({
                     flex flex-col h-full text-woodsmoke-700 bg-woodsmoke-100
                 `}>
                 <MantineProvider>
-                    <main className="h-full">{children}</main>
+                    <SmoothWrapper>
+                        <main className="h-full">{children}</main>
+                    </SmoothWrapper>
                 </MantineProvider>
             </body>
         </html>

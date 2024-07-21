@@ -82,7 +82,7 @@ export default function Login({
                         flex-1 flex flex-col w-full justify-center gap-2 
                         text-foreground 
                         p-8
-                        border border-woodsmoke-700 rounded-3xl overflow-hidden
+                        border border-woodsmoke-200 rounded-3xl overflow-hidden
                     `}
                 >
                     <legend className={`text-xl font-bold text-center mb-8`}>Faça login ou cadastre-se</legend>
@@ -91,7 +91,7 @@ export default function Login({
                         Email
                     </label>
                     <input
-                        className="rounded-lg px-4 py-2 bg-inherit border border-woodsmoke-700 focus:border-woodsmoke-500 transition-all duration-300 outline-none mb-6"
+                        className="rounded-lg px-4 py-2 bg-inherit border border-woodsmoke-200 focus:border-woodsmoke-500 transition-all duration-300 outline-none mb-6"
                         name="email"
                         placeholder="luiZinho@example.com"
                         required
@@ -100,7 +100,7 @@ export default function Login({
                         Senha
                     </label>
                     <input
-                        className="rounded-lg px-4 py-2 bg-inherit border border-woodsmoke-700 focus:border-woodsmoke-500 transition-all duration-300 outline-none mb-6"
+                        className="rounded-lg px-4 py-2 bg-inherit border border-woodsmoke-200 focus:border-woodsmoke-500 transition-all duration-300 outline-none mb-6"
                         type="password"
                         name="password"
                         placeholder="••••••••"
@@ -109,14 +109,14 @@ export default function Login({
                     <SubmitButton
                         formAction={signIn}
                         className="bg-woodsmoke-400 rounded-lg px-4 py-2 text-woodsmoke-800 font-bold mb-2"
-                        pendingText="Signing In..."
+                        pendingText="Logando..."
                     >
                         Login
                     </SubmitButton>
                     <SubmitButton
                         formAction={signUp}
                         className="border border-woodsmoke-600 rounded-lg px-4 py-2 text-foreground font-bold mb-2"
-                        pendingText="Signing Up..."
+                        pendingText="Cadastrando..."
                     >
                         Cadastrar
                     </SubmitButton>

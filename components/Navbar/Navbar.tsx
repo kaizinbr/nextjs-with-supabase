@@ -127,9 +127,8 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                         </div>
                         <ul className="flex flex-col gap-3">
                             <Link
-                                // leftSection={<Home size="1.3rem" className="mr-4" />}
                                 href="/"
-                                // unstyled
+                                onClick={close}
                                 className={`
                                         w-full flex flex-row items-center justify-start
                                         py-3 px-2 rounded-md
@@ -140,9 +139,8 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                         <Home size="1.3rem" className="mr-4" /> Início
                                     </Link>
                             <Link
-                                // leftSection={<FileText size="1.3rem" className="mr-4" />}
                                 href="/manage"
-                                // unstyled
+                                onClick={close}
                                 className={`
                                         w-full flex flex-row items-center justify-start
                                         py-3 px-2 rounded-md
@@ -152,21 +150,9 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                     >
                                         <FileText size="1.3rem" className="mr-4" /> Posts
                                     </Link>
-                            {/* <Link
-                                // leftSection={<LibraryBig size="1.3rem" className="mr-4" />}
-                                href="/manage"
-                                // unstyled
-                                className={`
-                                        w-full flex flex-row items-center justify-start
-                                        py-3 px-2 rounded-md
-                                        hover:bg-woodsmoke-300 bg-transparent
-                                        transition-all duration-300
-                                    `}
-                                    ></Link> */}
                             <Link
-                                // leftSection={<SquarePen size="1.3rem" className="mr-4" />}
                                 href="/create"
-                                // unstyled
+                                onClick={close}
                                 className={`
                                         w-full flex flex-row items-center justify-start
                                         py-3 px-2 rounded-md
@@ -176,9 +162,8 @@ export default function HeaderTabs({ user }: { user: User | null }) {
                                         <SquarePen size="1.3rem" className="mr-4" /> Criar post
                                     </Link>
                             <Link
-                                // leftSection={<Settings size="1.3rem" className="mr-4" />}
                                 href={`/profile/${username}`}
-                                // unstyled
+                                onClick={close}
                                 className={`
                                         w-full flex flex-row items-center justify-start
                                         py-3 px-2 rounded-md

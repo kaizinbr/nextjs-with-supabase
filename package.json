@@ -87,6 +87,7 @@
         "framer-motion": "^11.3.0",
         "iframe-resizer": "^4.4.5",
         "jsonwebtoken": "^9.0.2",
+        "lenis": "^1.1.6",
         "lowlight": "^2.9.0",
         "lucide-react": "^0.400.0",
         "nanoid": "^4.0.2",

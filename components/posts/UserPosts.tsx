@@ -28,11 +28,11 @@ export default function UserPosts({ user }: { user: any }) {
         <div
             className={`
             w-full grid grid-cols-1 md:grid-cols-2 gap-10
-            px-10 mt-20
+            px-10
         `}
         >
                 {posts?.map((post) => (
-                    <CardPost key={post.id} post={post} />
+                    <CardPost key={post.id} post={post} edit={true} />
                 ))}
         </div>
     );
