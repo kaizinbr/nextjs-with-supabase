@@ -143,7 +143,7 @@ export default function SetProfileForm({ user }: { user: User | null }) {
                         flex-1 flex flex-col w-full justify-center gap-2 
                         text-foreground 
                         p-8
-                        border border-woodsmoke-700 rounded-3xl overflow-hidden
+                        border border-woodsmoke-300 rounded-3xl overflow-hidden
                     `}
         >
             <div
@@ -223,7 +223,7 @@ export default function SetProfileForm({ user }: { user: User | null }) {
                                 className={`
                                                  rounded-lg
                                                 outline-none
-                                                bg-woodsmoke-800 w-full
+                                                bg-woodsmoke-100 w-full
                                                 transition duration-200 ease-in-out
                                                 text-3xl font-bold
                                             `}
@@ -245,7 +245,7 @@ export default function SetProfileForm({ user }: { user: User | null }) {
                                 className={`
                                                 rounded-lg
                                                 outline-none
-                                                bg-woodsmoke-800 w-full
+                                                bg-woodsmoke-100 w-full
                                                 transition duration-200 ease-in-out
                                                 text-lg  font-medium
                                             `}
@@ -264,7 +264,7 @@ export default function SetProfileForm({ user }: { user: User | null }) {
                                 className={`
                                                 rounded-lg
                                                 outline-none
-                                                bg-woodsmoke-800 w-full
+                                                bg-woodsmoke-100 w-full
                                                 transition duration-200 ease-in-out
                                                 text-lg  font-medium py-1
                                             `}
@@ -280,7 +280,7 @@ export default function SetProfileForm({ user }: { user: User | null }) {
                                 className={`
                                                 rounded-lg
                                                 outline-none
-                                                bg-woodsmoke-800 w-full
+                                                bg-woodsmoke-100 w-full
                                                 transition duration-200 ease-in-out
                                                 text-lg  font-medium py-1
                                             `}
@@ -290,7 +290,7 @@ export default function SetProfileForm({ user }: { user: User | null }) {
                             className={`
                     
                                         text-lg
-                                       bg-woodsmoke-800 w-full
+                                       bg-woodsmoke-100 w-full
                                     `}
                         >
                             <Textarea
