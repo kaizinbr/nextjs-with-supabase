@@ -95,7 +95,7 @@ export default function CardPost({
                 )}
                 <div className="flex flex-col gap-3 p-3">
                     <span className=" text-xs text-stone-500">
-                        room /{post.room}
+                        chapter /{post.room}
                     </span>
                     <h1 className="text-3xl PFRegalTextPro">{post.title}</h1>
                     {paragraph && (
