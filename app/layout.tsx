@@ -104,9 +104,9 @@ export default async function RootLayout({
                     flex flex-col h-full text-woodsmoke-700 bg-woodsmoke-100
                 `}>
                 <MantineProvider>
-                    <SmoothWrapper>
+                    {/* <SmoothWrapper> */}
                         <main className="h-full">{children}</main>
-                    </SmoothWrapper>
+                    {/* </SmoothWrapper> */}
                 </MantineProvider>
             </body>
         </html>
