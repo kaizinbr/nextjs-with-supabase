@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState, ChangeEvent } from "react";
 import { createClient } from "@/utils/supabase/client";
 import { type User } from "@supabase/supabase-js";
-import Avatar from "../avatar";
+import Avatar from "../AvatarEdit";
 import { Textarea } from "@mantine/core";
 import { ProfilePic } from "@/components/profile/general/ProfilePic";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -118,10 +118,13 @@ export default function SetProfileForm({ user }: { user: User | null }) {
         try {
             setLoading(true);
 
+            const lower_username = username?.toLowerCase();
+
             const { error } = await supabase.from("profiles").upsert({
                 id: user?.id as string,
                 full_name: fullname,
                 username,
+                lower_username,
                 website,
                 avatar_url,
                 bio,

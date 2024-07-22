@@ -10,21 +10,28 @@ export default async function Account({
 }) {
     const supabase = createClient();
 
+    console.log("user", params.username);
     const {
         data: { user },
     } = await supabase.auth.getUser();
 
+    const lowercasedUsername = params.username.toLowerCase();
+
     const { data, error } = await supabase
         .from("profiles")
         .select()
-        .eq("username", params.username);
+        .eq("lower_username", lowercasedUsername);
 
+    // if (error) {
+    //     console.log(error);
+    //     return null;
+    // }
+    // console.log("aaaa", data);
     const itsMe = user?.id === data![0].id;
 
-
     return (
-        <div className="flex flex-col md:flex-row">
-            {itsMe ? (<AccountForm user={user} />) : <DisplayUser user={data}/>}
+        <div className="flex flex-col w-full md:flex-row">
+            {itsMe ? <AccountForm user={user} /> : <DisplayUser user={data} />}
             <DisplayPosts user={data} />
         </div>
     );
