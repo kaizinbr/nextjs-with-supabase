@@ -217,7 +217,7 @@ export default function PubModal({
                                     room /{room}
                                 </span>
                                 <h1 className="text-3xl PFRegalTextPro">
-                                    {titleFromEditor!}
+                                    {titleFromEditor! || "Você precia adicionar um título para publicar!"}
                                 </h1>
                                 <p className="line-clamp-3 text-sm">
                                     {paragraphFromEditor!}
