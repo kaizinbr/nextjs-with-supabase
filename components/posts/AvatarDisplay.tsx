@@ -8,10 +8,12 @@ export default function Avatar({
     url,
     size,
     username,
+    intrisicSize
 }: {
     url: string | null;
     size: number;
     username?: string | null;
+    intrisicSize?: string;
 }) {
     const supabase = createClient();
     const [avatarUrl, setAvatarUrl] = useState<string | null>(url);
@@ -41,30 +43,30 @@ export default function Avatar({
 
    
     return (
-        <div className="flex relative flex-col justify-center items-center h-10 w-10 rounded-full ">
+        <>
             {avatarUrl ? (
                 <picture
                     className={`
                         flex flex-row justify-center items-center
                         bg-neutral-800 rounded-full overflow-hidden
-                        size-8
+                        ${intrisicSize}
                         
                     `}
                 >
                     <Image
                         width={size}
                         height={size}
-                        src="/img.jpg"
+                        src={avatarUrl}
                         alt="Avatar"
                         className={`
                                 object-cover object-center
                                 min-w-full
                                 avatar image
                             `}
-                        style={{ height: size, width: size }}
+                        style={{ height: size, width: "auto" }}
                     />
                 </picture>
             ) : ""}
-        </div>
+        </>
     );
 }

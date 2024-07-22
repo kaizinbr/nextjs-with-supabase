@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState, ChangeEvent } from "react";
 import { createClient } from "@/utils/supabase/client";
 import { type User } from "@supabase/supabase-js";
-import Avatar from "./avatar";
+import Avatar from "../../posts/AvatarDisplay";
 import { Textarea } from "@mantine/core";
 import { ProfilePic } from "@/components/profile/general/ProfilePic";
 import { useSearchParams, useRouter } from "next/navigation";
@@ -99,7 +99,7 @@ export default function DisplayUser({ user }: { user: any }) {
     const router = useRouter();
 
     return (
-        <div className="form-widget flex flex-col justify-center w-full md:max-w-md md:w-2/5 pt-16 px-8 md:px-0 md:pl-16">
+        <div className="form-widget flex flex-col justify-center w-full max-h-screen md:max-w-md md:w-2/5 pt-16 px-8 md:px-0 md:pl-16">
             <div
                 className={`
                     flex flex-col justify-start
@@ -122,26 +122,23 @@ export default function DisplayUser({ user }: { user: any }) {
                     `}
                     >
                         <picture
-                    className={`
+                            className={`
                         flex flex-row justify-center items-center
                         bg-neutral-800 rounded-full overflow-hidden
                         w-48 h-48
                         
                     `}
-                >
-                    <Image
-                        width={192}
-                        height={192}
-                        src={user[0]?.avatar_url || ""}
-                        alt="Avatar"
-                        className={`
-                                object-cover object-center
-                                min-w-full
-                                avatar image
-                            `}
-                        style={{ height: 192, width: 192 }}
-                    />
-                </picture>
+                        >
+                            {avatar_url && (
+                                <div className="flex relative flex-col justify-center items-center size-48 rounded-full ">
+                                    <Avatar
+                                        size={196}
+                                        url={avatar_url}
+                                        username={username}
+                                    />
+                                </div>
+                            )}
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -205,7 +202,9 @@ export default function DisplayUser({ user }: { user: any }) {
                                         transition duration-200 ease-in-out
                                         text-lg  font-medium py-1
                                     `}
-                            >{website || ""}</p>
+                            >
+                                {website || ""}
+                            </p>
                         </div>
 
                         <div>
@@ -217,20 +216,20 @@ export default function DisplayUser({ user }: { user: any }) {
                                         transition duration-200 ease-in-out
                                         text-lg  font-medium py-1
                                     `}
-                            >{pronouns || ""}</p>
+                            >
+                                {pronouns || ""}
+                            </p>
                         </div>
                         <div
                             className={`
                     
                                 text-lg 
-                                w-full
+                                w-full text-wrap
                             `}
                         >
-                            <p
-                            >{bio || ""}</p>
+                            <p className="text-wrap break-words">{bio || ""}</p>
                         </div>
                     </div>
-                    {/* </div> */}
                 </div>
             </div>
         </div>

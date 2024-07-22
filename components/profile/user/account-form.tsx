@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState, ChangeEvent } from "react";
 import { createClient } from "@/utils/supabase/client";
 import { type User } from "@supabase/supabase-js";
-import Avatar from "./avatar";
+import Avatar from "./AvatarEdit";
 import { Textarea } from "@mantine/core";
 import { ProfilePic } from "@/components/profile/general/ProfilePic";
 import { useSearchParams, useRouter } from "next/navigation";

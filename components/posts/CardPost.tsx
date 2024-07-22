@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
-import Avatar from "./avatar";
+import Avatar from "./AvatarDisplay";
 
 interface Post {
     title: string;
@@ -38,15 +38,16 @@ export default function CardPost({
     edit?: Boolean;
 }) {
     const [userProfile, setUserProfile] = useState<User | null>(null);
+    const [userImg, setUserImg] = useState<string | null>(null);
     const [paragraph, setParagraph] = useState<any | null>(null);
 
-    // console.log(post);
+    console.log(post);
 
     useEffect(() => {
         async function fetchParagraph() {
             const extractParagraphFromEditor =
                 post.content.content.find(
-                    (item: any) => item.type === "paragraph" && item.content
+                    (item: any) => item.type === "paragraph" && item.content,
                 ) || null;
 
             console.log(extractParagraphFromEditor);
@@ -70,8 +71,9 @@ export default function CardPost({
                 console.log(error);
                 return null;
             }
-
+            // console.log(data)
             setUserProfile(data);
+            setUserImg(data.avatar_url);
         }
 
         fetchUserProfile();
@@ -95,21 +97,26 @@ export default function CardPost({
                 )}
                 <div className="flex flex-col gap-3 p-3">
                     <span className=" text-xs text-stone-500">
-                        chapter /{post.room}
+                        Atualizado em {new Date(post.updated_at).toLocaleString()}
                     </span>
                     <h1 className="text-3xl PFRegalTextPro">{post.title}</h1>
                     {paragraph && (
-                        <p className="text-sm line-clamp-3">{paragraph.content![0].text}</p>
+                        <p className="text-sm line-clamp-3">
+                            {paragraph.content![0].text}
+                        </p>
                     )}
                 </div>
                 <div className="flex flex-row items-center gap-1 p-3 pt-0">
                     {userProfile && (
                         <>
-                            <Avatar
-                                size={36}
-                                url={userProfile.avatar_url}
-                                username={userProfile.username}
-                            />
+                            <div className="flex relative flex-col justify-center items-center h-10 w-10 rounded-full ">
+                                <Avatar
+                                    size={36}
+                                    url={userImg}
+                                    username={userProfile.username}
+                                    intrisicSize={"size-8"}
+                                />
+                            </div>
                             <p className="text-sm PFRegalTextPro">
                                 {userProfile!.username}
                             </p>
