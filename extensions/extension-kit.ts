@@ -101,9 +101,9 @@ export const ExtensionKit = ({
     CharacterCount.configure({ limit: 50000 }),
     TableOfContents,
     TableOfContentsNode,
-    // ImageUpload.configure({
-    //     clientId: provider?.document?.clientID,
-    // }),
+    ImageUpload.configure({
+        clientId: provider?.document?.clientID,
+    }),
     ImageBlock,
     FileHandler.configure({
         allowedMimeTypes: [

@@ -1,11 +1,12 @@
 import { createClient } from "@/utils/supabase/client";
 
 export class API {
-    public static uploadImage = async (file: File) => {
+    public static uploadImage = async (file: File | any) => {
         // await new Promise((r) => setTimeout(r, 500));
         const supabase = createClient();
 
         // const file = event.target.files[0];
+        console.log(file);
         const fileExt = file.name.split(".").pop();
         const filePath = `${file.lastModified}-${Math.random()}.${fileExt}`;
 
