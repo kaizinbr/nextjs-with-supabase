@@ -21,12 +21,6 @@ export default async function Account({
         .from("profiles")
         .select()
         .eq("lower_username", lowercasedUsername);
-
-    // if (error) {
-    //     console.log(error);
-    //     return null;
-    // }
-    // console.log("aaaa", data);
     const itsMe = user?.id === data![0].id;
 
     return (

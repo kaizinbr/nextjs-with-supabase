@@ -1,13 +1,15 @@
 import Navbar from "@/components/Navbar/Navbar";
+import ArtisticHeader from "@/components/core/header/ArtisticHeader";
 import { createClient } from "@/utils/supabase/server";
-
+import Navigator from "@/components/core/Navigator";
+import Transistor from "@/components/core/Transitor";
+import Mobile from "@/components/core/responsive/Mobile";
 
 export default async function Layout({
     children,
 }: {
     children: React.ReactNode;
 }) {
-    
     const supabase = createClient();
 
     const {
@@ -16,10 +18,11 @@ export default async function Layout({
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Navbar user={user} />
-            <div className="flex">
-                {children}
-            </div>
+            <ArtisticHeader user={user} />
+            <div className="flex flex-col">{children}</div>
+            <Mobile>
+                <Navigator user={user} />
+            </Mobile>
             {/* <Footer /> */}
         </div>
     );

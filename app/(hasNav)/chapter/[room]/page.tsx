@@ -1,26 +1,39 @@
-import RoomMain from '@/components/room/RoomMain'
-import { createClient } from '@/utils/supabase/server'
-
+import RoomMain from "@/components/room/RoomMain";
+import { createClient } from "@/utils/supabase/server";
+import DetailsHeader from "@/components/core/header/DetailsHeader";
 
 export default async function Page({ params }: { params: { room: string } }) {
-    const supabase = createClient()
+    const supabase = createClient();
 
-    const { data, error } = await supabase.from('posts').select('content').eq('room', params.room).single()
+    const { data, error } = await supabase
+        .from("posts")
+        .select("*")
+        .eq("room", params.room)
+        .single();
 
     if (error) {
-        console.error(error)
-        return
+        console.error(error);
+        return;
     }
 
-    const json = data?.content
-    console.log(json)
-
-
-    
+    const json = data?.content;
+    console.log(data);
 
     return (
-        <div className='w-full'>
-            <RoomMain json={json} />
-        </div>
-    )
+        <>
+            <DetailsHeader
+                content="Details"
+                chapterTitle={data?.title}
+                username={data?.author_username}
+                isPost={true}
+            />
+            <div className="w-full">
+                <RoomMain json={json} />
+            </div>
+            <div className="flex">
+                <div className="w-1/2">Hello</div>
+                <div className="w-1/2">Hello</div>
+            </div>
+        </>
+    );
 }

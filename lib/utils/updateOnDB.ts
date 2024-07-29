@@ -21,12 +21,15 @@ const updatePost = async (editor: any, room: any, supabase: any) => {
 
     const exists = await supabase.from("posts").select("*").eq("room", room);
 
+    const userProfile = await supabase.from("profiles").select("*").eq("id", user.id);
+
     if (exists.data?.length === 0) {
         await supabase.from("posts").insert([
             {
                 room,
                 content,
                 author_id: user.id,
+                author_username: userProfile.data[0].username,
             },
         ]);
     } else {
@@ -38,6 +41,7 @@ const updatePost = async (editor: any, room: any, supabase: any) => {
                 updated_at: new Date(),
                 title: extractTitleFromEditor,
                 image,
+                author_username: userProfile.data[0].username,
             })
             .eq("room", room);
 

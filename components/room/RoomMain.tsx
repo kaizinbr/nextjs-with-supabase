@@ -27,7 +27,7 @@ export default function RoomMain({json}: { json: string}  ) {
 
 
     return (
-        <div className='displaying px-5'>
+        <div className='displaying px-5 mt-8 lg:mt-24'>
             <BlockEditor json={json} />
         </div>
     )

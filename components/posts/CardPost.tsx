@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import Avatar from "./AvatarDisplay";
+import PastRelativeTime from "../core/PastRelativeTime";
 
 interface Post {
     title: string;
@@ -41,7 +42,7 @@ export default function CardPost({
     const [userImg, setUserImg] = useState<string | null>(null);
     const [paragraph, setParagraph] = useState<any | null>(null);
 
-    console.log(post);
+    // console.log(post);
 
     useEffect(() => {
         async function fetchParagraph() {
@@ -91,13 +92,13 @@ export default function CardPost({
                             alt="Authentication"
                             width={500}
                             height={500}
-                            className="object-cover w-full max-h-[500px]"
+                            className="object-cover w-full max-h-[400px]"
                         />
                     </picture>
                 )}
                 <div className="flex flex-col gap-3 p-3">
                     <span className=" text-xs text-stone-500">
-                        Atualizado em {new Date(post.updated_at).toLocaleString()}
+                        <PastRelativeTime date={new Date(post.updated_at)} />
                     </span>
                     <h1 className="text-3xl PFRegalTextPro">{post.title}</h1>
                     {paragraph && (
