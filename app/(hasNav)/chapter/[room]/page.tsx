@@ -30,9 +30,8 @@ export default async function Page({ params }: { params: { room: string } }) {
             <div className="w-full">
                 <RoomMain json={json} />
             </div>
-            <div className="flex">
-                <div className="w-1/2">Hello</div>
-                <div className="w-1/2">Hello</div>
+            <div className="flex text-center mx-auto">
+                <div className="w-1/2">aqui vao aparecer os dados de quem postou</div>
             </div>
         </>
     );

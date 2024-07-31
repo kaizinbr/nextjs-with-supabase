@@ -14,7 +14,7 @@ import { Toolbar } from '../../components/ui/Toolbar'
 import { Icon } from '../../components/ui/Icon'
 
 
-export default function RoomDisplay({ json }: { params: { room: string } }) {
+export default function RoomDisplay({ params }: { params: { room: string } }) {
     // const { isDarkMode, darkMode, lightMode } = useDarkmode()
     const [provider, setProvider] = useState<TiptapCollabProvider | null>(null)
     const [collabToken, setCollabToken] = useState<string | null>(null)

@@ -21,14 +21,12 @@ import { ContentItemMenu } from "../menus/ContentItemMenu";
 
 import { createClient } from "@/utils/supabase/client";
 
-export const BlockEditor = ({json}: { json: string}) => {
-    const menuContainerRef = useRef(null);
+export const BlockEditor = ({ json }: { json: string }) => {
+    // const menuContainerRef = useRef(null);
     const editorRef = useRef<PureEditorContent | null>(null);
     console.log(json);
 
-    const { editor } =
-        useBlockEditor(json);
-
+    const { editor } = useBlockEditor(json);
 
     const providerValue = useMemo(() => {
         return {};
@@ -42,12 +40,12 @@ export const BlockEditor = ({json}: { json: string}) => {
 
     return (
         <EditorContext.Provider value={providerValue}>
-                <div className="relative flex flex-col flex-1 h-full overflow-hidden">
-                    <EditorContent
-                        editor={editor}
-                        ref={editorRef as React.RefObject<HTMLDivElement>}
-                        className="flex-1 overflow-y-auto"
-                    />
+            <div className="relative flex flex-col flex-1 h-full overflow-hidden">
+                <EditorContent
+                    editor={editor}
+                    ref={editorRef as React.RefObject<HTMLDivElement>}
+                    className="flex-1 overflow-y-auto"
+                />
             </div>
         </EditorContext.Provider>
     );

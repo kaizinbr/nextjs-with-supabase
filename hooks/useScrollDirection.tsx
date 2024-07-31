@@ -34,6 +34,7 @@ const useScrollDirection = () => {
         };
 
         window.addEventListener("scroll", onScroll);
+        console.log("scrollDirection", scrollDirection);
 
         return () => window.removeEventListener("scroll", onScroll);
     }, [scrollDirection]);

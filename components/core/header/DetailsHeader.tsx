@@ -65,8 +65,8 @@ export default function DetailsHeader({
     return (
         <div
             className={`
-            fixed left-0 top-0 z-20 h-16 w-full
-            ${scrollDirection > "down" ? "top-0" : "-top-20"}
+            fixed left-0 z-20 h-16 w-full
+            ${scrollDirection == "down" ? "-top-20" : "top-0"}
             transition-all duration-300
             lg:hidden
             border-b border-woodsmoke-50/70 bg-woodsmoke-50/70 backdrop-blur-lg py-3
@@ -82,7 +82,7 @@ export default function DetailsHeader({
                 <div className="text-center flex flex-col">
                     {isPost ? (
                         <>
-                            <h2 className=" text-base font-700 text-black mx-auto w-2/3 overflow-hidden">{chapterTitle}</h2>
+                            <h2 className=" text-base font-700 text-black mx-auto w-2/3 line-clamp-1 overflow-hidden">{chapterTitle}</h2>
                             <h3 className="text-sm -mt-1 text-woodsmoke-300">{username}</h3>
                         </>
                     ) : (

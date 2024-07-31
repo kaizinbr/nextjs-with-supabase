@@ -71,7 +71,7 @@ export default function Navigator({ user }: { user: User | null }) {
             fixed 
             ${scrollDirection > "down" ? "bottom-0" : "-bottom-24"}
             transition-all duration-300
-            left-0 flex w-full items-center justify-evenly border-t-1 border-woodsmoke-50/70 bg-woodsmoke-50/70 backdrop-blur-lg px-6 py-2
+            left-0 flex w-full items-center justify-evenly border-t-1 border-woodsmoke-50/70 bg-woodsmoke-50/70 backdrop-blur-lg px-6 
         `}>
             <Link
                 data-active={pathname === "/"}

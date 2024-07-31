@@ -15,7 +15,8 @@ export default function UserPosts({ user }: { user: any }) {
             const { data: posts, error } = await supabase
                 .from("posts")
                 .select()
-                .eq("author_id", user.id);
+                .eq("author_id", user.id)
+                .order("updated_at", { ascending: false });
 
             console.log(posts);
             setPosts(posts);
