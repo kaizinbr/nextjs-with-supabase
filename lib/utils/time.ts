@@ -2,11 +2,11 @@ import { DateTime, Interval } from "luxon";
 
 export function getFutureRelativeTime(date: Date, today: Date): string {
     const targetDateTime = DateTime.fromJSDate(date, {
-        zone: "Asia/Seoul",
+        zone: "America/Sao_Paulo",
     }).plus({
         milliseconds: 1,
     });
-    const todayDateTime = DateTime.fromJSDate(today, { zone: "Asia/Seoul" });
+    const todayDateTime = DateTime.fromJSDate(today, { zone: "America/Sao_Paulo" });
     const interval = Interval.fromDateTimes(todayDateTime, targetDateTime);
     const diffDays = interval.count("days") - 1;
     const diffHours = Math.floor(interval.length("hours"));
@@ -66,27 +66,27 @@ export function getShortPastRelativeTime(date: Date, today: Date): string {
 }
 
 export function formatTimeAsDate(date: Date): string {
-    const datetime = DateTime.fromJSDate(date, { zone: "Asia/Seoul" });
-    return datetime.toFormat("yy. MM. dd.");
+    const datetime = DateTime.fromJSDate(date, { zone: "America/Sao_Paulo" });
+    return datetime.toFormat("dd. MM. yyyy.");
 }
 
 export function formatTimeAsTime(date: Date): string {
-    const datetime = DateTime.fromJSDate(date, { zone: "Asia/Seoul" });
-    return datetime.toFormat("yyyy. MM. dd. HH:mm");
+    const datetime = DateTime.fromJSDate(date, { zone: "America/Sao_Paulo" });
+    return datetime.toFormat("dd. MM. yyyy. HH:mm");
 }
 
 export function formatTimeAsSixDigit(date: Date): string {
-    const datetime = DateTime.fromJSDate(date, { zone: "Asia/Seoul" });
+    const datetime = DateTime.fromJSDate(date, { zone: "America/Sao_Paulo" });
     return datetime.toFormat("yyMMdd");
 }
 
 export function formatTimeAsDateJs(date: Date): string {
-    const datetime = DateTime.fromJSDate(date, { zone: "Asia/Seoul" });
+    const datetime = DateTime.fromJSDate(date, { zone: "America/Sao_Paulo" });
     return datetime.toFormat("yyyy-MM-dd");
 }
 
 export function formatTimeAsDateTimeJs(date: Date): string {
-    const datetime = DateTime.fromJSDate(date, { zone: "Asia/Seoul" });
+    const datetime = DateTime.fromJSDate(date, { zone: "America/Sao_Paulo" });
     return datetime.toFormat("yyyy-MM-dd'T'HH:mm");
 }
 

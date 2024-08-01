@@ -96,210 +96,203 @@ export default function AccountForm({ user }: { user: User | null }) {
     const router = useRouter();
 
     return (
-        <div className="form-widget flex flex-col justify-center md:h-lvh md:max-w-md md:w-2/5 pt-16 px-8 md:px-0 md:pl-16">
-            
-
-            <div
-                className={`
-                    flex flex-col justify-start
-                    w-full
-                `}
-            >
+        <div className="fixed top-0 bottom-0">
+            <div className={`
+                form-widget flex flex-col justify-center
+                md:h-lvh md:max-w-md md:w-2/5
+                pt-16 px-8 md:px-0 md:pl-16
+            `}>
                 <div
                     className={`
-                        bgPfp flex flex-col justify-end items-start relative
-                        h-56 w-full
+                        flex flex-col justify-start
+                        w-full
                     `}
                 >
                     <div
                         className={`
-                    
-                        flex flex-row justify-start items-center
-                        gap-3 pt-8 px-4 w-full h-56
-                        bg-gradient-to- from-transparent to-black/45 from-40% 
-                        z-30
-                    `}
-                    >
-                        <Avatar
-                            uid={user?.id ?? null}
-                            url={avatar_url}
-                            size={192}
-                            username={username}
-                            onUpload={(url) => {
-                                setAvatarUrl(url);
-                                updateProfile({
-                                    fullname,
-                                    username,
-                                    website,
-                                    avatar_url: url,
-                                    pronouns,
-                                    bio
-                                });
-                            }}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <div
-                className={`
-                    profile  flex-col-reverse
-                    flex items-center justify-center
-                    col-span-6 lg:col-span-4 
-                    relative
-                    w-full
-                    mt-8
-                    px-4
-                `}
-            >
-                <div
-                    className={`
-                            
-
-                            flex flex-col justify-center lg:items-center
-                            
-                            bg-default-fill
-                            rounded-3xl w-full
-                            gap-3
+                            bgPfp flex flex-col justify-end items-start relative
+                            h-56 w-full
                         `}
-                >
-
-                    <form
-                        autoComplete="off"
-                        spellCheck="false"
-                        className="flex flex-col justify-start items-start w-full"
                     >
-                        <div>
-                            <input
-                                type="text"
-                                name="name"
-                                value={fullname || ""}
-                                onChange={(e) => setFullname(e.target.value)}
-                                placeholder="Seu Nome..."
-                                className={`
-                                         rounded-lg
-                                        outline-none
-                                        bg-woodsmoke-100 w-full
-                                        transition duration-200 ease-in-out
-                                        text-3xl font-bold 
-                                    `}
-                            ></input>
-                        </div>
-                        <div className="flex flex-row py-1">
-                            <span className="text-lg font-medium">@</span>
-                            <input
-                                type="text"
-                                name="username"
-                                value={username || ""}
-                                onChange={(e) => setUsername(e.target.value)}
-                                placeholder="Seu Username..."
-                                // onKeyUp={(e) => {
-                                //     if (userAlreadyExists(e.currentTarget.value)) {
-                                //         console.log("user already exists");
-                                //     }
-                                // }}
-                                className={`
-                                        rounded-lg
-                                        outline-none
-                                        bg-woodsmoke-100 w-full
-                                        transition duration-200 ease-in-out
-                                        text-lg  font-medium
-                                    `}
-                            ></input>
-                        </div>
-                        <div>
-                            <input
-                                type="text"
-                                name="website"
-                                value={website || ""}
-                                onChange={(e) => setWebsite(e.target.value)}
-                                placeholder="Site"
-                                // onKeyUp={(e) => {
-                                //     if (userAlreadyExists(e.currentTarget.value)) {
-                                //         console.log("user already exists");
-                                //     }
-                                // }}
-                                className={`
-                                        rounded-lg
-                                        outline-none
-                                        bg-woodsmoke-100 w-full
-                                        transition duration-200 ease-in-out
-                                        text-lg  font-medium py-1
-                                    `}
-                            ></input>
-                        </div>
-
-                        <div>
-                            <input
-                                type="text"
-                                name="pronouns"
-                                value={pronouns || ""}
-                                onChange={(e) => setPronouns(e.target.value)}
-                                placeholder="Pronomes"
-                                // onKeyUp={(e) => {
-                                //     if (userAlreadyExists(e.currentTarget.value)) {
-                                //         console.log("user already exists");
-                                //     }
-                                // }}
-                                className={`
-                                        rounded-lg
-                                        outline-none
-                                        bg-woodsmoke-100 w-full
-                                        transition duration-200 ease-in-out
-                                        text-lg  font-medium py-1
-                                    `}
-                            ></input>
-                        </div>
                         <div
                             className={`
-                    
-                                text-lg 
-                               bg-woodsmoke-100 w-full
-                            `}
+            
+                            flex flex-row justify-start items-center
+                            gap-3 pt-8 px-4 w-full h-56
+                            bg-gradient-to- from-transparent to-black/45 from-40%
+                            z-30
+                        `}
                         >
-                            <Textarea
-                                label=""
-                                placeholder="Sua bio"
-                                autosize
-                                variant="unstyled"
-                                minRows={2}
-                                maxRows={4}
-                                value={bio || ""}
-                                classNames={{
-                                    root: "w-full",
-                                    input: classes.textareaInput,
+                            <Avatar
+                                uid={user?.id ?? null}
+                                url={avatar_url}
+                                size={192}
+                                username={username}
+                                onUpload={(url) => {
+                                    setAvatarUrl(url);
+                                    updateProfile({
+                                        fullname,
+                                        username,
+                                        website,
+                                        avatar_url: url,
+                                        pronouns,
+                                        bio
+                                    });
                                 }}
-                                onChange={(e) => setBio(e.target.value)}
                             />
                         </div>
-                    </form>
-                    {/* </div> */}
+                    </div>
                 </div>
-            </div>
-
-
-            <div className="flex w-full flex-row gap-4">
-                <button
-                    className=" px-4 py-2 rounded-lg bg-indigo-400 font-bold text-stone-100"
-                    onClick={() =>
-                        updateProfile({
-                            fullname,
-                            username,
-                            website,
-                            avatar_url,
-                            pronouns,
-                            bio
-                        })
-                    }
-                    disabled={loading}
+                <div
+                    className={`
+                        profile  flex-col-reverse
+                        flex items-center justify-center
+                        col-span-6 lg:col-span-4
+                        relative
+                        w-full
+                        mt-8
+                        px-4
+                    `}
                 >
-                    {loading ? "Salvando..." : "Salvar"}
-                </button>
-                <form action="/auth/signout" method="post">
-                    <button className="px-4 py-2 rounded-lg bg-red-400 font-bold text-stone-100" type="submit">
-                        Sign out
+                    <div
+                        className={`
+            
+                                flex flex-col justify-center lg:items-center
+            
+                                bg-default-fill
+                                rounded-3xl w-full
+                                gap-3
+                            `}
+                    >
+                        <form
+                            autoComplete="off"
+                            spellCheck="false"
+                            className="flex flex-col justify-start items-start w-full"
+                        >
+                            <div>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={fullname || ""}
+                                    onChange={(e) => setFullname(e.target.value)}
+                                    placeholder="Seu Nome..."
+                                    className={`
+                                             rounded-lg
+                                            outline-none
+                                            bg-woodsmoke-100 w-full
+                                            transition duration-200 ease-in-out
+                                            text-3xl font-bold
+                                        `}
+                                ></input>
+                            </div>
+                            <div className="flex flex-row py-1">
+                                <span className="text-lg font-medium">@</span>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    value={username || ""}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    placeholder="Seu Username..."
+                                    className={`
+                                            rounded-lg
+                                            outline-none
+                                            bg-woodsmoke-100 w-full
+                                            transition duration-200 ease-in-out
+                                            text-lg  font-medium
+                                        `}
+                                ></input>
+                            </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="website"
+                                    value={website || ""}
+                                    onChange={(e) => setWebsite(e.target.value)}
+                                    placeholder="Site"
+                                    // onKeyUp={(e) => {
+                                    //     if (userAlreadyExists(e.currentTarget.value)) {
+                                    //         console.log("user already exists");
+                                    //     }
+                                    // }}
+                                    className={`
+                                            rounded-lg
+                                            outline-none
+                                            bg-woodsmoke-100 w-full
+                                            transition duration-200 ease-in-out
+                                            text-lg  font-medium py-1
+                                        `}
+                                ></input>
+                            </div>
+                            <div>
+                                <input
+                                    type="text"
+                                    name="pronouns"
+                                    value={pronouns || ""}
+                                    onChange={(e) => setPronouns(e.target.value)}
+                                    placeholder="Pronomes"
+                                    // onKeyUp={(e) => {
+                                    //     if (userAlreadyExists(e.currentTarget.value)) {
+                                    //         console.log("user already exists");
+                                    //     }
+                                    // }}
+                                    className={`
+                                            rounded-lg
+                                            outline-none
+                                            bg-woodsmoke-100 w-full
+                                            transition duration-200 ease-in-out
+                                            text-lg  font-medium py-1
+                                        `}
+                                ></input>
+                            </div>
+                            <div
+                                className={`
+            
+                                    text-lg
+                                   bg-woodsmoke-100 w-full
+                                `}
+                            >
+                                <Textarea
+                                    label=""
+                                    placeholder="Sua bio"
+                                    autosize
+                                    variant="unstyled"
+                                    minRows={2}
+                                    maxRows={4}
+                                    value={bio || ""}
+                                    classNames={{
+                                        root: "w-full",
+                                        input: classes.textareaInput,
+                                    }}
+                                    onChange={(e) => setBio(e.target.value)}
+                                />
+                            </div>
+                        </form>
+                        {/* </div> */}
+                    </div>
+                </div>
+                <div className="flex w-full flex-row gap-4 px-4">
+                    <button
+                        className=" px-4 py-2 rounded-lg bg-indigo-400 font-bold text-stone-100"
+                        onClick={() =>
+                            updateProfile({
+                                fullname,
+                                username,
+                                website,
+                                avatar_url,
+                                pronouns,
+                                bio
+                            })
+                        }
+                        disabled={loading}
+                    >
+                        {loading ? "Salvando..." : "Salvar"}
                     </button>
-                </form>
+                    <form action="/auth/signout" method="post">
+                        <button className="px-4 py-2 rounded-lg bg-red-400 font-bold text-stone-100" type="submit">
+                            Sair
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     );

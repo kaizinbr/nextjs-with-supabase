@@ -70,3 +70,8 @@ input[type="range"] {
     font-weight: 400;
     font-style: italic;
 }
+
+.displaying .ProseMirror {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}

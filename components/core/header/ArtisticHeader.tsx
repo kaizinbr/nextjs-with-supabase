@@ -88,7 +88,7 @@ export default function ArtisticHeader({ user }: { user: User | null }) {
             data-floating={isFloating}
             data-mobile={true}
             className={`
-                    group fixed left-1/2 top-0 z-30 w-full max-w-screen-lg -translate-x-1/2 p-6 text-black transition-all duration-300
+                    group fixed left-1/2 top-0 z-40 w-full max-w-screen-lg -translate-x-1/2 p-6 text-black transition-all duration-300
                     border border-transparent data-[floating=true]:lg:border-woodsmoke-200/70 
                     hidden
                     lg:block data-[expanded=true]:max-w-screen-xlg data-[floating=true]:bg-woodsmoke-50/70  data-[floating=true]:py-5 
