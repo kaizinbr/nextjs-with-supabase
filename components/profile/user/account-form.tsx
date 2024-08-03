@@ -29,7 +29,9 @@ export default function AccountForm({ user }: { user: User | null }) {
 
             const { data, error, status } = await supabase
                 .from("profiles")
-                .select(`full_name, username, website, avatar_url, bio, pronouns`)
+                .select(
+                    `full_name, username, website, avatar_url, bio, pronouns`,
+                )
                 .eq("id", user?.id)
                 .single();
 
@@ -96,12 +98,12 @@ export default function AccountForm({ user }: { user: User | null }) {
     const router = useRouter();
 
     return (
-        <div className="fixed top-0 bottom-0">
-            <div className={`
-                form-widget flex flex-col justify-center
-                md:h-lvh md:max-w-md md:w-2/5
-                pt-16 px-8 md:px-0 md:pl-16
-            `}>
+        <div className="form-widget flex flex-col justify-center w-full max-h-screen md:max-w-md md:w-2/5">
+            <div
+                className={`
+                md:fixed top-0 bottom-0 w-full pt-16 md:pt-0 md:max-w-md md:w-2/5 px-8 md:px-0 md:pl-16 flex flex-col justify-center
+            `}
+            >
                 <div
                     className={`
                         flex flex-col justify-start
@@ -136,7 +138,7 @@ export default function AccountForm({ user }: { user: User | null }) {
                                         website,
                                         avatar_url: url,
                                         pronouns,
-                                        bio
+                                        bio,
                                     });
                                 }}
                             />
@@ -174,7 +176,9 @@ export default function AccountForm({ user }: { user: User | null }) {
                                     type="text"
                                     name="name"
                                     value={fullname || ""}
-                                    onChange={(e) => setFullname(e.target.value)}
+                                    onChange={(e) =>
+                                        setFullname(e.target.value)
+                                    }
                                     placeholder="Seu Nome..."
                                     className={`
                                              rounded-lg
@@ -191,7 +195,9 @@ export default function AccountForm({ user }: { user: User | null }) {
                                     type="text"
                                     name="username"
                                     value={username || ""}
-                                    onChange={(e) => setUsername(e.target.value)}
+                                    onChange={(e) =>
+                                        setUsername(e.target.value)
+                                    }
                                     placeholder="Seu Username..."
                                     className={`
                                             rounded-lg
@@ -228,7 +234,9 @@ export default function AccountForm({ user }: { user: User | null }) {
                                     type="text"
                                     name="pronouns"
                                     value={pronouns || ""}
-                                    onChange={(e) => setPronouns(e.target.value)}
+                                    onChange={(e) =>
+                                        setPronouns(e.target.value)
+                                    }
                                     placeholder="Pronomes"
                                     // onKeyUp={(e) => {
                                     //     if (userAlreadyExists(e.currentTarget.value)) {
@@ -280,7 +288,7 @@ export default function AccountForm({ user }: { user: User | null }) {
                                 website,
                                 avatar_url,
                                 pronouns,
-                                bio
+                                bio,
                             })
                         }
                         disabled={loading}
@@ -288,7 +296,10 @@ export default function AccountForm({ user }: { user: User | null }) {
                         {loading ? "Salvando..." : "Salvar"}
                     </button>
                     <form action="/auth/signout" method="post">
-                        <button className="px-4 py-2 rounded-lg bg-red-400 font-bold text-stone-100" type="submit">
+                        <button
+                            className="px-4 py-2 rounded-lg bg-red-400 font-bold text-stone-100"
+                            type="submit"
+                        >
                             Sair
                         </button>
                     </form>
