@@ -2,7 +2,7 @@ import Link from "next/link";
 import { headers } from "next/headers";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
-import { SubmitButton } from "./submit-button";
+import { SubmitButton } from "@/components/core/SubmitBtn";
 
 export default function Login({
     searchParams,
@@ -22,7 +22,8 @@ export default function Login({
         });
 
         if (error) {
-            return redirect("/login?message=Could not authenticate user");
+            console.log(error)
+            return redirect("/login?message=Não conseguimos encontrar esse usuário");
         }
 
         return redirect("/");
@@ -47,18 +48,18 @@ export default function Login({
 
         if (error) {
             console.log(error)
-            return redirect("/login?message=Could not authenticate user");
+            return redirect("/login?message=Não conseguimos encontrar esse usuário");
         }
 
         return redirect(
-            "/login?message=Check email to continue sign in process",
+            "/login?message=Verique seu email para confirmar sua conta",
         );
     };
 
     return (
         <div className="flex w-full min-h-lvh justify-center items-center">
             <div className=" flex flex-col w-full px-8 sm:max-w-md justify-center gap-2">
-                <Link
+                {/* <Link
                     href="/"
                     className="absolute left-8 top-8 py-2 px-4 rounded-md no-underline text-foreground bg-btn-background hover:bg-btn-background-hover flex items-center group text-sm"
                 >
@@ -77,13 +78,13 @@ export default function Login({
                         <polyline points="15 18 9 12 15 6" />
                     </svg>{" "}
                     Back
-                </Link>
+                </Link> */}
                 <form
                     className={`
                         flex-1 flex flex-col w-full justify-center gap-2 
                         text-foreground 
                         p-8
-                        border border-woodsmoke-200 rounded-3xl overflow-hidden
+                        border-2 border-[#cbc4c1] rounded-3xl overflow-hidden
                     `}
                 >
                     <legend className={`text-xl font-bold text-center mb-8`}>Faça login ou cadastre-se</legend>
@@ -92,7 +93,7 @@ export default function Login({
                         Email
                     </label>
                     <input
-                        className="rounded-lg px-4 py-2 bg-inherit border border-woodsmoke-200 focus:border-woodsmoke-500 transition-all duration-300 outline-none mb-6"
+                        className="rounded-xl px-4 py-2 bg-inherit border-2 border-fantasy-950/30 focus:border-fantasy-950/50 transition-all duration-300 outline-none mb-6"
                         name="email"
                         placeholder="luiZinho@example.com"
                         required
@@ -101,7 +102,7 @@ export default function Login({
                         Senha
                     </label>
                     <input
-                        className="rounded-lg px-4 py-2 bg-inherit border border-woodsmoke-200 focus:border-woodsmoke-500 transition-all duration-300 outline-none mb-6"
+                        className="rounded-xl px-4 py-2 bg-inherit border-2 border-fantasy-950/30 focus:border-fantasy-950/50 transition-all duration-300 outline-none mb-6"
                         type="password"
                         name="password"
                         placeholder="••••••••"
@@ -109,18 +110,19 @@ export default function Login({
                     />
                     <SubmitButton
                         formAction={signIn}
-                        className="bg-woodsmoke-400 rounded-lg px-4 py-2 text-woodsmoke-800 font-bold mb-2"
+                        className="bg-sandybrown-400 rounded-xl border-2 border-b-defaultB border-fantasy-950 px-4 py-2 text-woodsmoke-800 font-bold mb-2"
                         pendingText="Logando..."
                     >
                         Login
                     </SubmitButton>
                     <SubmitButton
                         formAction={signUp}
-                        className="border border-woodsmoke-600 rounded-lg px-4 py-2 text-foreground font-bold mb-2"
+                        className="rounded-xl border-2 border-b-defaultB border-fantasy-950 px-4 py-2 text-foreground font-bold mb-2"
                         pendingText="Cadastrando..."
                     >
                         Cadastrar
                     </SubmitButton>
+                    <Link href="/reset/password" className="text-center">Esqueci minha senha</Link>
                     {searchParams?.message && (
                         <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center">
                             {searchParams.message}

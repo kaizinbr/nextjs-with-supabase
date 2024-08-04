@@ -10,6 +10,8 @@ import { X } from "lucide-react";
 import Loading, { LoadingSm } from "@/components/Loading";
 import containsSpecialChars from "@/lib/utils/containsSpecialChars";
 import ColorSelect from "@/components/profile/me/ColorSelect";
+import Link from "next/link";
+import Icon from "@/components/core/Icon";
 
 import classes from "./AcForm.module.css";
 
@@ -104,6 +106,17 @@ export default function AccountForm({ user }: { user: User | null }) {
                 md:fixed top-0 bottom-0 w-full pt-16 md:pt-0 md:max-w-md md:w-2/5 px-8 md:px-0 md:pl-16 flex flex-col justify-center
             `}
             >
+                <div
+                    className={`
+                        flex flex-col justify-start
+                        size-10
+                    `}
+                >
+                    <Link href={"/profile/settings"} className="p-2 rounded-lg hover:bg-woodsmoke-300/60 bg-transparent transition-all duration-200">
+                        <Icon className="cursor-pointer size-6" type={"settings"} />
+                    </Link>
+                </div>
+                
                 <div
                     className={`
                         flex flex-col justify-start
@@ -295,14 +308,14 @@ export default function AccountForm({ user }: { user: User | null }) {
                     >
                         {loading ? "Salvando..." : "Salvar"}
                     </button>
-                    <form action="/auth/signout" method="post">
+                    {/* <form action="/auth/signout" method="post">
                         <button
                             className="px-4 py-2 rounded-lg bg-red-400 font-bold text-stone-100"
                             type="submit"
                         >
                             Sair
                         </button>
-                    </form>
+                    </form> */}
                 </div>
             </div>
         </div>

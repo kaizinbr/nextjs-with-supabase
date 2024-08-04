@@ -2,6 +2,7 @@
 
 import { useFormStatus } from "react-dom";
 import { type ComponentProps } from "react";
+import { motion } from "framer-motion";
 
 type Props = ComponentProps<"button"> & {
     pendingText?: string;

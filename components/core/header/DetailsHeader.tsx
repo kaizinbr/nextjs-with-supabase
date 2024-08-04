@@ -5,6 +5,7 @@ import Icon from "@/components/core/Icon";
 // import useTitle from "@/hooks/title";
 import { usePathname, useRouter } from "next/navigation";
 import useScrollDirection from "@/hooks/useScrollDirection";
+import BackBtn from "../BackBtn";
 
 export default function DetailsHeader({
     content,

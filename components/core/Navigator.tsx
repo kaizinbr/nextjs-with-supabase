@@ -76,7 +76,7 @@ export default function Navigator({ user }: { user: User | null }) {
             <Link
                 data-active={pathname === "/"}
                 href={`/`}
-                className="jelly jelly-increased flex min-w-[70px] basis-0 cursor-pointer flex-col items-center gap-1 rounded-8 p-3 text-woodsmoke-400 data-[active=true]:text-primary-500 selected:bg-woodsmoke-400 selected:text-gray-300"
+                className="jelly jelly-increased flex min-w-[70px] basis-0 cursor-pointer flex-col items-center gap-1 rounded-8 p-3 text-woodsmoke-400 data-[active=true]:text-sandybrown-500 selected:bg-woodsmoke-400 selected:text-gray-300"
             >
                 <Icon type="home" className="h-5" />
                 <div className="text-12 font-600">Home</div>
@@ -84,7 +84,7 @@ export default function Navigator({ user }: { user: User | null }) {
             <Link
                 data-active={pathname === "/create"}
                 href={`/create`}
-                className="jelly jelly-increased flex min-w-[70px] basis-0 cursor-pointer flex-col items-center gap-1 rounded-8 p-3 text-woodsmoke-400 data-[active=true]:text-primary-500 selected:bg-woodsmoke-400 selected:text-gray-300"
+                className="jelly jelly-increased flex min-w-[70px] basis-0 cursor-pointer flex-col items-center gap-1 rounded-8 p-3 text-woodsmoke-400 data-[active=true]:text-sandybrown-500 selected:bg-woodsmoke-400 selected:text-gray-300"
             >
                 <TbSquareRoundedPlusFilled className="size-6" />
                 <div className="text-12 font-600">Novo</div>
@@ -92,7 +92,7 @@ export default function Navigator({ user }: { user: User | null }) {
             <Link
                 data-active={pathname === "/manage"}
                 href={`/manage`}
-                className="jelly jelly-increased flex min-w-[70px] basis-0 cursor-pointer flex-col items-center gap-1 rounded-8 p-3 text-woodsmoke-400 data-[active=true]:text-primary-500 selected:bg-woodsmoke-400 selected:text-gray-300"
+                className="jelly jelly-increased flex min-w-[70px] basis-0 cursor-pointer flex-col items-center gap-1 rounded-8 p-3 text-woodsmoke-400 data-[active=true]:text-sandybrown-500 selected:bg-woodsmoke-400 selected:text-gray-300"
             >
                 <TbFolderFilled className="size-6" />
                 <div className="text-12 font-600">Posts</div>
@@ -100,7 +100,7 @@ export default function Navigator({ user }: { user: User | null }) {
             <Link
                 data-active={pathname === "/profile" || pathname === `/profile${username}`}
                 href={`/profile${username ? "/" + username : ""}`}
-                className="jelly jelly-increased flex min-w-[70px] basis-0 cursor-pointer flex-col items-center gap-1 rounded-8 p-3 text-woodsmoke-400 data-[active=true]:text-primary-500 selected:bg-woodsmoke-400 selected:text-gray-300"
+                className="jelly jelly-increased flex min-w-[70px] basis-0 cursor-pointer flex-col items-center gap-1 rounded-8 p-3 text-woodsmoke-400 data-[active=true]:text-sandybrown-500 selected:bg-woodsmoke-400 selected:text-gray-300"
             >
                 {avatar_url ? (
                     <AvatarB size={24} url={avatar_url} />

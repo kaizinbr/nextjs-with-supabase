@@ -24,7 +24,7 @@ export default function CardsContainer({
             render={(post, idx) => (
                 <CardPost key={post.id} post={post} />
             )}
-            className="w-full mt-20 px-4 mx-auto max-w-4xl"
+            className="w-full mt-20 px-3 mx-auto max-w-4xl"
         />
     );
 }

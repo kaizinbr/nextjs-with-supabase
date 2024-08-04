@@ -83,7 +83,7 @@ export default function CardPost({
     // console.log(userProfile);
 
     return (
-        <div className="flex flex-col gap-2 border border-woodsmoke-200 rounded-3xl overflow-hidden">
+        <div className="flex flex-col gap-2 border border-sandybrown-950/20 rounded-3xl overflow-hidden">
             <Link href={`/${edit ? "create" : "chapter"}/${post.room}`}>
                 {post.image && (
                     <picture className="w-full">

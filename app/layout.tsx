@@ -25,6 +25,7 @@ import HeaderTabs from "@/components/Navbar/Navbar";
 export const metadata: Metadata = {
     title: "Kaizin",
     description: "Portfólio de Kaio Lucas, desenvolvedor front end e designer.",	
+    metadataBase: new URL("http://localhost:3000"),
     // openGraph: {
     //     type: "website",
     //     locale: "pt_BR",
@@ -67,7 +68,7 @@ const myFont = localFont({
 });
 
 // export const metadata: Metadata = {
-//     metadataBase: new URL("https://demos.tiptap.dev"),
+//     metadataBase: new URL("http://localhost:3000"),
 //     title: "Tiptap block editor template",
 //     description:
 //         "Tiptap is a suite of open source content editing and real-time collaboration tools for developers building apps like Notion or Google Docs.",
