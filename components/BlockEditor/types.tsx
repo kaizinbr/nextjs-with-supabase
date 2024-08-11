@@ -7,6 +7,8 @@ export interface TiptapProps {
     provider?: TiptapCollabProvider | null | undefined;
     room?: string;
     initialContent?: any;
+    authorId?: string;
+    loggedId?: string;
 }
 
 export type EditorUser = {

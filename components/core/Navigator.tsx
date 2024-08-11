@@ -70,8 +70,8 @@ export default function Navigator({ user }: { user: User | null }) {
         <div className={`
             fixed 
             ${scrollDirection > "down" ? "bottom-0" : "-bottom-24"}
-            transition-all duration-300
-            left-0 flex w-full items-center justify-evenly border-t-1 border-woodsmoke-50/70 bg-woodsmoke-50/70 backdrop-blur-lg px-6 
+            transition-all duration-300 z-[999]
+            left-0 flex w-full items-center justify-evenly border-t-1 border-woodsmoke-50/70 bg-woodsmoke-50/90 backdrop-blur-lg px-6 
         `}>
             <Link
                 data-active={pathname === "/"}

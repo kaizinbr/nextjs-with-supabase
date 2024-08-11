@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import Avatar from "./AvatarDisplay";
 import PastRelativeTime from "../core/PastRelativeTime";
+import EditOptions from "./EditOptions";
 
 interface Post {
     title: string;
@@ -83,8 +84,8 @@ export default function CardPost({
     // console.log(userProfile);
 
     return (
-        <div className="flex flex-col gap-2 border border-sandybrown-950/20 rounded-3xl overflow-hidden">
-            <Link href={`/${edit ? "create" : "chapter"}/${post.room}`}>
+        <div className="flex flex-col gap-2 border border-woodsmoke-400/70 rounded-3xl overflow-hidden relative">
+            <Link href={`/${edit ? "create" : "chapter"}/${post.room}`} className="z-20">
                 {post.image && (
                     <picture className="w-full">
                         <Image
@@ -107,9 +108,9 @@ export default function CardPost({
                         </p>
                     )}
                 </div>
-                <div className="flex flex-row items-center gap-1 p-3 pt-0">
+                <div className="flex flex-row justify-between items-center gap-1 p-3 pt-0 relative">
                     {userProfile && (
-                        <>
+                        <div  className="flex flex-row items-center gap-1">
                             <div className="flex relative flex-col justify-center items-center h-10 w-10 rounded-full ">
                                 <Avatar
                                     size={36}
@@ -121,20 +122,25 @@ export default function CardPost({
                             <p className="text-sm PFRegalTextPro">
                                 {userProfile!.username}
                             </p>
-                        </>
+                        </div>
+
                     )}
+                    {edit && <EditOptions />}
                 </div>
             </Link>
-            {edit && (
+            {/* {edit && (
                 <div className="footercard grid grid-cols-2 gap-4">
-                    <button className="w-full rounded-lg bg-sky-700/30 border-2 border-sky-600/30 py-3">
+                    <Link
+                        href={`/chapter/${post.room}`}
+                        className="w-full rounded-3xl border border-sandybrown-950/20 py-3"
+                    >
                         Ver publicação
-                    </button>
+                    </Link>
                     <button className="w-full rounded-lg bg-sky-700/30 border-2 border-sky-600/30 py-3">
                         Mais opções
                     </button>
                 </div>
-            )}
+            )} */}
         </div>
     );
 }

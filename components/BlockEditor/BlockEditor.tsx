@@ -2,6 +2,7 @@
 
 import { EditorContent, PureEditorContent } from "@tiptap/react";
 import React, { useMemo, useRef, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { LinkMenu } from "../menus";
 
 import { useBlockEditor } from "../../hooks/useBlockEditor";
@@ -25,10 +26,19 @@ export const BlockEditor = ({
     provider,
     room,
     initialContent,
+    authorId,
+    loggedId,
 }: TiptapProps) => {
     const menuContainerRef = useRef(null);
     const editorRef = useRef<PureEditorContent | null>(null);
     const supabase = createClient();
+        const router = useRouter();
+
+    
+    if (authorId !== loggedId) {
+        console.log("You are not the author of this document");
+        router.push("/nottoday");
+    }
 
     const { editor, users, characterCount, collabState, leftSidebar } =
         useBlockEditor({ ydoc, provider, room, supabase, initialContent });

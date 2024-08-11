@@ -91,7 +91,7 @@ export default function ArtisticHeader({ user }: { user: User | null }) {
                     group fixed left-1/2 top-0 z-40 w-full max-w-screen-lg -translate-x-1/2 p-6 text-black transition-all duration-300
                     border border-transparent data-[floating=true]:lg:border-woodsmoke-200/70 
                     hidden
-                    lg:block data-[expanded=true]:max-w-screen-xlg data-[floating=true]:bg-woodsmoke-50/70  data-[floating=true]:py-5 
+                    lg:block data-[expanded=true]:max-w-screen-xlg data-[floating=true]:bg-woodsmoke-50/90  data-[floating=true]:py-5 
                     data-[floating=true]:text-black data-[floating=true]:backdrop-blur-lg data-[expanded=true]:lg:block lg:rounded-full
                     data-[expanded=true]:lg:!top-4 data-[floating=true]:lg:top-8 data-[mobile=false]:lg:block 
                     data-[expanded=true]:lg:w-artistic-header-expanded-width-lg data-[floating=true]:lg:px-7 

@@ -34,16 +34,17 @@ export default function Document({ params }: { params: { room: string } }) {
     const [title, setTitle] = useState<string | null>(null);
     const [image, setImage] = useState<string | null>(null);
 
-    const supabase = createClient();
+    const [loggedId, setLoggedId] = useState("");
+    const [authorId, setAuthorId] = useState("");
 
-    // const { data, error } = await supabase.from('posts').select('content').eq('room', params.room).single()
+    const supabase = createClient();
 
     useEffect(() => {
         // fetch data
         const contentfetch = async () => {
             const { data, error } = await supabase
                 .from("posts")
-                .select("content,title,image")
+                .select("content,title,image,author_id")
                 .eq("room", room)
                 .single();
 
@@ -56,14 +57,25 @@ export default function Document({ params }: { params: { room: string } }) {
             setInitialContent(data.content);
             setTitle(data.title);
             setImage(data.image);
-            
+            setAuthorId(data.author_id);
+            console.log(data.author_id);
+        };
+
+        const checkIfCanSee = async () => {
+            const { data } = await supabase.auth.getSession();
+
+            if (data.session) {
+                setLoggedId(data.session.user.id);
+                console.log(data.session.user.id);
+                console.log(authorId, loggedId);
+            }
         };
 
         contentfetch();
-            console.log(initialContent);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+        checkIfCanSee();
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     useEffect(() => {
         // fetch data
         const dataFetch = async () => {
@@ -86,7 +98,6 @@ export default function Document({ params }: { params: { room: string } }) {
     }, []);
 
     const ydoc = useMemo(() => new YDoc(), []);
-    
 
     useLayoutEffect(() => {
         if (hasCollab && collabToken) {
@@ -112,6 +123,8 @@ export default function Document({ params }: { params: { room: string } }) {
                 provider={null}
                 room={room}
                 initialContent={initialContent}
+                authorId={authorId}
+                loggedId={loggedId}
             />
         </>
     );
