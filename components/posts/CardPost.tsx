@@ -8,6 +8,7 @@ import { createClient } from "@/utils/supabase/client";
 import Avatar from "./AvatarDisplay";
 import PastRelativeTime from "../core/PastRelativeTime";
 import EditOptions from "./EditOptions";
+import { motion } from "framer-motion";
 
 interface Post {
     title: string;
@@ -52,7 +53,7 @@ export default function CardPost({
                     (item: any) => item.type === "paragraph" && item.content,
                 ) || null;
 
-            console.log(extractParagraphFromEditor);
+            // console.log(extractParagraphFromEditor);
 
             setParagraph(extractParagraphFromEditor);
         }
@@ -84,8 +85,20 @@ export default function CardPost({
     // console.log(userProfile);
 
     return (
-        <div className="flex flex-col gap-2 border border-woodsmoke-400/70 rounded-3xl overflow-hidden relative">
-            <Link href={`/${edit ? "create" : "chapter"}/${post.room}`} className="z-20">
+        <motion.div
+        whileTap={{ scale: 0.8 }}
+            className={`
+            flex flex-col gap-2 
+            border-2 border-woodsmoke-400/70 hover:border-woodsmoke-400/90
+            bg-transparent hover:bg-woodsmoke-200/40
+            transition-all duration-200 ease-in-out   
+            rounded-3xl overflow-hidden relative
+        `}
+        >
+            <Link
+                href={`/${edit ? "create" : "chapter"}/${post.room}`}
+                className="z-20"
+            >
                 {post.image && (
                     <picture className="w-full">
                         <Image
@@ -110,7 +123,7 @@ export default function CardPost({
                 </div>
                 <div className="flex flex-row justify-between items-center gap-1 p-3 pt-0 relative">
                     {userProfile && (
-                        <div  className="flex flex-row items-center gap-1">
+                        <div className="flex flex-row items-center gap-1">
                             <div className="flex relative flex-col justify-center items-center h-10 w-10 rounded-full ">
                                 <Avatar
                                     size={36}
@@ -123,7 +136,6 @@ export default function CardPost({
                                 {userProfile!.username}
                             </p>
                         </div>
-
                     )}
                     {edit && <EditOptions />}
                 </div>
@@ -141,6 +153,6 @@ export default function CardPost({
                     </button>
                 </div>
             )} */}
-        </div>
+        </motion.div>
     );
 }

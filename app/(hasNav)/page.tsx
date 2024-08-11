@@ -21,8 +21,8 @@ export default async function Index() {
         <div className="flex-1 w-full flex flex-col items-center pb-20 relative">
             <div
                 className={`
-                    absolute top-0 left-0 right-0 h-48
-                    bg-gradient-to-b from-sandybrown-300 to-transparent
+                    absolute -top-8 left-0 right-0 h-96
+                    bg-gradient-to-b from-main-600 to-transparent
                     z-10
                 `}
             ></div>

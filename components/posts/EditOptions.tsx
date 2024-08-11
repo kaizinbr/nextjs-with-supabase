@@ -16,7 +16,7 @@ export default function EditOptions({ post }: { post?: any }) {
             shadow="md"
             width={200}
             position="left-start"
-            offset={10}
+            offset={0}
             classNames={{
                 dropdown: classes.dropdown + " rounded-xl",
             }}
