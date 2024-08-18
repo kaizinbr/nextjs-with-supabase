@@ -142,8 +142,8 @@ export default function Document({ params }: { params: { room: string } }) {
 
     if (hasCollab && (!collabToken || !provider)) return;
 
-    console.log("authorId", authorId);
-    console.log("loggedId", loggedId);
+    // console.log("authorId", authorId);
+    // console.log("loggedId", loggedId);
 
     return (
         <>

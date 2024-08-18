@@ -19,7 +19,7 @@
 
     /* Default Placeholder */
     & > .is-editor-empty::before {
-        content: "Click here to start writing …";
+        content: "Clique aqui para escrever…";
     }
 
     /* Blockquote Placeholder */
