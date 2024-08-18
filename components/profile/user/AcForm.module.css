@@ -2,7 +2,11 @@
     font-size: 18px !important;
     font-weight: 500;
     line-height: 1.75rem;
-    color: rgb(24 24 24 / 1);
+    /* color: rgb(24 24 24 / 1); */
     padding: 4px 0;
     margin-bottom: 16px;
+}
+
+.textareaInput:is(.dark *) {
+    color: rgb(255 255 255 / 1) !important;
 }

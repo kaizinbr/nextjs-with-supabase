@@ -51,23 +51,12 @@ export default async function Page({ params }: { params: { room: string } }) {
             ) : (
                 <>
                     <div className="w-full mt-24 lg:mt-32">
-                        <div className="px-4 mb-4 mx-auto w-full max-w-2xl sm:px-0 flex flex-col">
+                        <div className="px-4 mb-4 mx-auto w-full max-w-2xl sm:px-0 flex flex-col  text-woodsmoke-500 dark:text-woodsmoke-300">
                             <Link
                                 href={`/profile/${data?.author_username}`}
                                 className="flex flex-col mb-2 w-fit"
                             >
                                 <picture className="rounded-full overflow-hidden size-16 relative mb-2">
-                                    {/* <Image
-                                        src={
-                                            data?.profiles.avatar_url
-                                                ? data?.profiles.avatar_url
-                                                : `/static/images/default-profile.webp`
-                                        }
-                                        layout="fill"
-                                        objectFit="cover"
-                                        alt="avatar"
-                                        className=""
-                                    /> */}
                                     <div className="flex relative flex-col justify-center items-center size-16 rounded-full ">
                                         <Avatar
                                             size={66}
@@ -78,13 +67,13 @@ export default async function Page({ params }: { params: { room: string } }) {
                                     </div>
                                 </picture>
                                 <h2 className="text-xl font-bold PFRegalTextPro">
-                                    {data?.profiles.full_name}{" "}
-                                    <span className="text-sm text-woodsmoke-500">
+                                    <span className="text-white">{data?.profiles.full_name}</span>{" "}
+                                    <span className="text-sm">
                                         @{data?.profiles.username}
                                     </span>
                                 </h2>
                             </Link>
-                            <span className="text-xs text-woodsmoke-500">
+                            <span className="text-xs">
                                 {criado} | Atualizado{" "}
                                 <PastRelativeTime
                                     date={new Date(data?.updated_at)}

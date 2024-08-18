@@ -103,6 +103,7 @@ export default async function RootLayout({
                 
                 myFont.className +`
                     flex flex-col h-full text-woodsmoke-700 bg-woodsmoke-100
+                    dark:bg-woodsmoke-700 dark:text-woodsmoke-50
                 `}>
                 <MantineProvider>
                     {/* <SmoothWrapper> */}

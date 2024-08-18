@@ -86,11 +86,12 @@ export default function CardPost({
 
     return (
         <motion.div
-        whileTap={{ scale: 0.8 }}
+            whileTap={{ scale: 0.8 }}
             className={`
             flex flex-col gap-2 
-            border-2 border-woodsmoke-400/70 hover:border-woodsmoke-400/90
-            bg-transparent hover:bg-woodsmoke-200/40
+            border-2 border-woodsmoke-400/70 hover:border-woodsmoke-400/90 
+            dark:border-woodsmoke-550/70 dark:hover:border-woodsmoke-550/90
+            bg-transparent hover:bg-woodsmoke-200/40 dark:hover:bg-woodsmoke-550/40
             transition-all duration-200 ease-in-out   
             rounded-3xl overflow-hidden relative
         `}
@@ -111,7 +112,7 @@ export default function CardPost({
                     </picture>
                 )}
                 <div className="flex flex-col gap-3 p-3">
-                    <span className=" text-xs text-stone-500">
+                    <span className=" text-xs text-stone-500 dark:text-stone-400">
                         <PastRelativeTime date={new Date(post.updated_at)} />
                     </span>
                     <h1 className="text-3xl PFRegalTextPro">{post.title}</h1>

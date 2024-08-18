@@ -41,7 +41,7 @@ const ShowViews = async ({ slug }: { slug: string }) => {
     const { views } = await recordViewCount(slug);
 
     return (
-        <div className="flex flex-row mt-2 gap-1 text-xs text-woodsmoke-500">
+        <div className="flex flex-row mt-2 gap-1 text-xs ">
             <Eye size={16} />
             <span>{views} views</span>
         </div>
