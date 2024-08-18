@@ -5,8 +5,13 @@
     /* color: rgb(24 24 24 / 1); */
     padding: 4px 0;
     margin-bottom: 16px;
+    @apply dark:text-white;
 }
 
-.textareaInput:is(.dark *) {
-    color: rgb(255 255 255 / 1) !important;
+.m_8fb7ebe7 {
+    color: unset !important;
 }
+
+/* .textareaInput:is(.dark *) {
+    color: rgb(255 255 255 / 1) !important;
+} */

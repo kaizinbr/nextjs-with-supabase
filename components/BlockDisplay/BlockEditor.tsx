@@ -24,7 +24,7 @@ import { createClient } from "@/utils/supabase/client";
 export const BlockEditor = ({ json }: { json: string }) => {
     // const menuContainerRef = useRef(null);
     const editorRef = useRef<PureEditorContent | null>(null);
-    console.log(json);
+    // console.log(json);
 
     const { editor } = useBlockEditor(json);
 

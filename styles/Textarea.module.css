@@ -1,0 +1,11 @@
+.input {
+    @apply border border-transparent bg-transparent rounded-xl p-0 mb-0 placeholder:text-woodsmoke-400 dark:text-white;
+}
+
+.m_8fb7ebe7 {
+    color: unset !important;
+}
+
+.inner {
+    padding-top: 128px !important;
+}
