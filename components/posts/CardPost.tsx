@@ -9,6 +9,7 @@ import Avatar from "./AvatarDisplay";
 import PastRelativeTime from "../core/PastRelativeTime";
 import EditOptions from "./EditOptions";
 import { motion } from "framer-motion";
+import Icon from "../core/Icon";
 
 interface Post {
     title: string;
@@ -89,9 +90,9 @@ export default function CardPost({
             whileTap={{ scale: 0.8 }}
             className={`
             flex flex-col gap-2 
-            border-2 border-woodsmoke-400/70 hover:border-woodsmoke-400/90 
-            dark:border-woodsmoke-550/70 dark:hover:border-woodsmoke-550/90
-            bg-transparent hover:bg-woodsmoke-200/40 dark:hover:bg-woodsmoke-550/40
+            
+            bg-[#1f1f1f] 
+            bg
             transition-all duration-200 ease-in-out   
             rounded-3xl overflow-hidden relative
         `}
@@ -100,29 +101,7 @@ export default function CardPost({
                 href={`/${edit ? "create" : "chapter"}/${post.room}`}
                 className="z-20"
             >
-                {post.image && (
-                    <picture className="w-full">
-                        <Image
-                            src={post.image}
-                            alt="Authentication"
-                            width={500}
-                            height={500}
-                            className="object-cover w-full max-h-[400px]"
-                        />
-                    </picture>
-                )}
-                <div className="flex flex-col gap-3 p-3">
-                    <span className=" text-xs text-stone-500 dark:text-stone-400">
-                        <PastRelativeTime date={new Date(post.updated_at)} />
-                    </span>
-                    <h1 className="text-3xl PFRegalTextPro">{post.title}</h1>
-                    {paragraph && (
-                        <p className="text-sm line-clamp-3">
-                            {paragraph.content![0].text}
-                        </p>
-                    )}
-                </div>
-                <div className="flex flex-row justify-between items-center gap-1 p-3 pt-0 relative">
+                <div className="flex flex-row justify-between items-center gap-1 p-3 pb-0 relative">
                     {userProfile && (
                         <div className="flex flex-row items-center gap-1">
                             <div className="flex relative flex-col justify-center items-center h-10 w-10 rounded-full ">
@@ -133,13 +112,45 @@ export default function CardPost({
                                     intrisicSize={"size-8"}
                                 />
                             </div>
-                            <p className="text-sm PFRegalTextPro">
-                                {userProfile!.username}
-                            </p>
+                            <div className="flex items-center flex-row gap-2">
+                                <p className="text-sm PFRegalTextPro">
+                                    {userProfile!.username}
+                                </p>
+                                    <span className=" text-xs text-stone-500 dark:text-stone-400">
+                                        <PastRelativeTime
+                                            date={new Date(post.updated_at)}
+                                        />
+                                    </span>
+                            </div>
                         </div>
                     )}
                     {edit && <EditOptions />}
                 </div>
+                <div className="flex flex-col gap-3 p-3">
+                    {/* <h1 className="text-3xl PFRegalTextPro">{post.title}</h1> */}
+                    {paragraph && (
+                        <p className="text-sm line-clamp-3">
+                            {paragraph.content![0].text}
+                        </p>
+                    )}
+                </div>
+                {post.image && (
+                    <picture className="w-full flex p-3">
+                        <Image
+                            src={post.image}
+                            alt="Authentication"
+                            width={500}
+                            height={500}
+                            className="object-cover w-full max-h-[400px] rounded-2xl"
+                        />
+                    </picture>
+                )}
+
+                {/* <div className="flex w-full flex-row justify-between gap-3 p-3">
+                    <span className=" text-xs text-stone-500 dark:text-stone-400">
+                        <Icon name="eye" type="heart" className="size-6" />
+                    </span>
+                </div> */}
             </Link>
             {/* {edit && (
                 <div className="footercard grid grid-cols-2 gap-4">
