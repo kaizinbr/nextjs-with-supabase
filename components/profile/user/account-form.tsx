@@ -196,7 +196,7 @@ export default function AccountForm({ user }: { user: User | null }) {
                                     className={`
                                              rounded-lg
                                             outline-none
-                                            bg-woodsmoke-100 dark:bg-woodsmoke-700 w-full
+                                            bg-woodsmoke-900 w-full
                                             transition duration-200 ease-in-out
                                             text-3xl font-bold
                                         `}
@@ -215,7 +215,7 @@ export default function AccountForm({ user }: { user: User | null }) {
                                     className={`
                                             rounded-lg
                                             outline-none
-                                            bg-woodsmoke-100 dark:bg-woodsmoke-700 w-full
+                                            bg-woodsmoke-900 w-full
                                             transition duration-200 ease-in-out
                                             text-lg  font-medium
                                         `}
@@ -236,7 +236,7 @@ export default function AccountForm({ user }: { user: User | null }) {
                                     className={`
                                             rounded-lg
                                             outline-none
-                                            bg-woodsmoke-100 dark:bg-woodsmoke-700 w-full
+                                            bg-woodsmoke-900 w-full
                                             transition duration-200 ease-in-out
                                             text-lg  font-medium py-1
                                         `}
@@ -259,7 +259,7 @@ export default function AccountForm({ user }: { user: User | null }) {
                                     className={`
                                             rounded-lg
                                             outline-none
-                                            bg-woodsmoke-100 dark:bg-woodsmoke-700 w-full
+                                            bg-woodsmoke-900 w-full
                                             transition duration-200 ease-in-out
                                             text-lg  font-medium py-1
                                         `}
@@ -269,8 +269,8 @@ export default function AccountForm({ user }: { user: User | null }) {
                                 className={`
             
                                     text-lg
-                                   bg-woodsmoke-100 dark:bg-woodsmoke-700 w-full
-                                   dark:text-woodsmoke-100 text-woodsmoke-800
+                                   bg-woodsmoke-900 w-full
+                                   dark:text-woodsmoke-100 text-woodsmoke-900
                                 `}
                             >
                                 <Textarea

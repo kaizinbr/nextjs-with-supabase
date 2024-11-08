@@ -73,8 +73,8 @@ export default function Navigator({ user }: { user: User | null }) {
             ${scrollDirection > "down" ? "bottom-0" : "-bottom-24"}
             transition-all duration-300 z-[999]
             left-0 flex w-full items-center justify-evenly 
-            border-t-1 border-woodsmoke-50/70 bg-woodsmoke-50/90 
-            dark:bg-woodsmoke-600/90 dark:border-woodsmoke-700/90
+            border-t-1 
+            bg-woodsmoke-600/90 border-woodsmoke-700/90
             backdrop-blur-lg px-6 
         `}
         >
@@ -87,7 +87,7 @@ export default function Navigator({ user }: { user: User | null }) {
                             flex-col items-center gap-1 rounded-8 p-3
                             text-woodsmoke-400 data-[active=true]:text-main-600
                             selected:bg-woodsmoke-400 selected:text-gray-300
-                            hover:bg-woodsmoke-100 dark:hover:bg-woodsmoke-550 hover:text-main-400
+                             hover:bg-woodsmoke-550 hover:text-main-400
                             transition-all duration-200 ease-in-out
                         `}
                 >
@@ -104,7 +104,7 @@ export default function Navigator({ user }: { user: User | null }) {
                             flex-col items-center gap-1 rounded-8 p-3
                             text-woodsmoke-400 data-[active=true]:text-main-600
                             selected:bg-woodsmoke-400 selected:text-gray-300
-                            hover:bg-woodsmoke-100 dark:hover:bg-woodsmoke-550 hover:text-main-400
+                             hover:bg-woodsmoke-550 hover:text-main-400
                             transition-all duration-200 ease-in-out
                         `}
                 >
@@ -121,7 +121,7 @@ export default function Navigator({ user }: { user: User | null }) {
                             flex-col items-center gap-1 rounded-8 p-3
                             text-woodsmoke-400 data-[active=true]:text-main-600
                             selected:bg-woodsmoke-400 selected:text-gray-300
-                            hover:bg-woodsmoke-100 dark:hover:bg-woodsmoke-550 hover:text-main-400
+                             hover:bg-woodsmoke-550 hover:text-main-400
                             transition-all duration-200 ease-in-out
                         `}
                 >
@@ -141,7 +141,7 @@ export default function Navigator({ user }: { user: User | null }) {
                             flex-col items-center gap-1 rounded-8 p-3
                             text-woodsmoke-400 data-[active=true]:text-main-600
                             selected:bg-woodsmoke-400 selected:text-gray-300
-                            hover:bg-woodsmoke-100 dark:hover:bg-woodsmoke-550 hover:text-main-400
+                             hover:bg-woodsmoke-550 hover:text-main-400
                             transition-all duration-200 ease-in-out
                         `}
                 >

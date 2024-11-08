@@ -106,6 +106,10 @@
     }
 }
 
+.displaying p {
+    @apply text-woodsmoke-200;
+}
+
 .displaying .ProseMirror {
     .is-empty::before {
         @apply text-neutral-500 dark:text-neutral-400;

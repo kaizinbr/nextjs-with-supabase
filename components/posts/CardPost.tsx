@@ -98,7 +98,7 @@ export default function CardPost({
         `}
         >
             <Link
-                href={`/${edit ? "create" : "chapter"}/${post.room}`}
+                href={`/${edit ? "create" : "status"}/${post.room}`}
                 className="z-20"
             >
                 <div className="flex flex-row justify-between items-center gap-1 p-3 pb-0 relative">

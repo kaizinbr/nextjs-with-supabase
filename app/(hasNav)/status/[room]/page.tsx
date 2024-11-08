@@ -42,12 +42,6 @@ export default async function Page({ params }: { params: { room: string } }) {
 
     return (
         <>
-            <DetailsHeader
-                content="Details"
-                chapterTitle={data?.title}
-                username={data?.profiles.full_name}
-                isPost={true}
-            />
             {error ? (
                 <div className="w-full h-dvh flex justify-center items-center">
                     <span className="">
@@ -56,42 +50,45 @@ export default async function Page({ params }: { params: { room: string } }) {
                 </div>
             ) : (
                 <>
+                    <DetailsHeader
+                        content="Details"
+                        chapterTitle={data?.title}
+                        fullname={data?.profiles.full_name}
+                        username={data?.profiles.username}
+                        img={data?.profiles.avatar_url}
+                        isPost={true}
+                    />
                     <div className="w-full mt-24 lg:mt-32">
-                        <div className="px-4 mb-4 mx-auto w-full max-w-2xl sm:px-0 flex flex-col  text-woodsmoke-500 dark:text-woodsmoke-300">
-                            <Link
-                                href={`/profile/${data?.author_username}`}
-                                className="flex flex-col mb-2 w-fit"
-                            >
-                                <picture className="rounded-full overflow-hidden size-16 relative mb-2">
-                                    <div className="flex relative flex-col justify-center items-center size-16 rounded-full ">
+                        <div className="px-4 mx-auto w-full max-w-2xl sm:px-0 flex flex-col mb-2 text-woodsmoke-300">
+                            <div className="flex flex-row w-fit">
+                                <picture className="rounded-full overflow-hidden size-10 mr-3 relative">
+                                    <div className="flex relative flex-col justify-center items-center size-10 rounded-full ">
                                         <Avatar
-                                            size={66}
+                                            size={42}
                                             url={data?.profiles.avatar_url}
                                             username={data?.profiles.username}
-                                            intrisicSize={"size-16"}
+                                            intrisicSize={"size-10"}
                                         />
                                     </div>
                                 </picture>
-                                <h2 className="text-xl font-bold PFRegalTextPro">
-                                    <span className="dark:text-white">
-                                        {data?.profiles.full_name}
-                                    </span>{" "}
-                                    <span className="text-sm">
-                                        @{data?.profiles.username}
-                                    </span>
-                                </h2>
-                            </Link>
-                            <span className="text-xs">
-                                {criado} | Atualizado{" "}
-                                <PastRelativeTime
+                                <div className="flex flex-col h-full justify-center">
+                                    <h2 className="text-sm">
+                                        <span className="text-white font-bold">
+                                            {data?.profiles.full_name}
+                                        </span>{" "}
+                                        <span className="text-xs">
+                                            @{data?.profiles.username}
+                                        </span>
+                                    </h2>
+                                    <span className="text-xs">
+                                        {criado}
+                                        {/* <PastRelativeTime
                                     date={new Date(data?.updated_at)}
-                                />
-                            </span>
+                                /> */}
+                                    </span>
+                                </div>
+                            </div>
                             {/* <ShowViews slug={params.room} /> */}
-                        </div>
-                        {/* <div className="divider w-full border-b my-4 px-4 border-woodsmoke-200"></div> */}
-                        <div className="w-full max-w-2xl px-4 lg:px-0 mx-auto">
-                            <Divider />
                         </div>
 
                         <RoomMain json={json} />
@@ -99,7 +96,34 @@ export default async function Page({ params }: { params: { room: string } }) {
                     <div className="w-full max-w-2xl px-4 lg:px-0 mx-auto">
                         <Divider />
                     </div>
-                    <div className="px-4 mb-24 mx-auto w-full max-w-2xl sm:px-0 flex flex-col">
+                    <Link
+                        href={`/profile/${data?.author_username}`}
+                        className="flex flex-col mb-2 w-fit"
+                    >
+                        <picture className="rounded-full overflow-hidden size-16 relative mb-2">
+                            <div className="flex relative flex-col justify-center items-center size-16 rounded-full ">
+                                <Avatar
+                                    size={66}
+                                    url={data?.profiles.avatar_url}
+                                    username={data?.profiles.username}
+                                    intrisicSize={"size-16"}
+                                />
+                            </div>
+                        </picture>
+                        <h2 className="text-xl font-bold PFRegalTextPro">
+                            <span className="dark:text-white">
+                                {data?.profiles.full_name}
+                            </span>{" "}
+                            <span className="text-sm">
+                                @{data?.profiles.username}
+                            </span>
+                        </h2>
+                    </Link>
+                    <span className="text-xs">
+                        {criado} | Atualizado{" "}
+                        <PastRelativeTime date={new Date(data?.updated_at)} />
+                    </span>
+                    {/* <div className="px-4 mb-24 mx-auto w-full max-w-2xl sm:px-0 flex flex-col">
                         <SetAComment data={data} />
                         <h2 className="text-2xl font-bold PFRegalTextPro">
                             Comentários
@@ -109,7 +133,6 @@ export default async function Page({ params }: { params: { room: string } }) {
                                 w-full flex flex-col items-center mt-6
                             `}
                         >
-
                             <Comments post={data} />
                             {/* <div
                                 className={`
@@ -147,9 +170,9 @@ export default async function Page({ params }: { params: { room: string } }) {
                                         imma mess mess mess mess mess mess
                                     </p>
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
-                    </div>
+                    </div> */}
                 </>
             )}
         </>

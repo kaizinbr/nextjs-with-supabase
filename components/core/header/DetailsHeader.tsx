@@ -7,20 +7,26 @@ import { usePathname, useRouter } from "next/navigation";
 import useScrollDirection from "@/hooks/useScrollDirection";
 import BackBtn from "../BackBtn";
 
+import Avatar from "@/components/posts/AvatarDisplay";
+
 export default function DetailsHeader({
     content,
+    fullname,
     username,
     chapterTitle,
-    isPost
+    isPost,
+    img,
 }: {
     content?: string;
+    fullname?: string;
     username?: string;
     chapterTitle?: string;
     isPost?: boolean;
+    img?: string;
 }) {
     const pathname = usePathname();
     const router = useRouter();
-    
+
     const scrollDirection = useScrollDirection();
 
     function handleBackClick() {
@@ -62,7 +68,7 @@ export default function DetailsHeader({
         default:
             title = content || "";
     }
-
+console.log(fullname, username, img)
     return (
         <div
             className={`
@@ -70,26 +76,32 @@ export default function DetailsHeader({
             ${scrollDirection == "down" ? "-top-20" : "top-0"}
             transition-all duration-300
             lg:hidden
-            border-b border-woodsmoke-50/70 bg-woodsmoke-50/70 
-            dark:bg-woodsmoke-600/70 dark:border-woodsmoke-600/70 
+            border-b
+            bg-woodsmoke-600/70 border-woodsmoke-600/70 
             backdrop-blur-lg py-3
         `}
         >
             <div className="absolute h-10 w-full lg:left-1/2 lg:max-w-screen-lgx lg:-translate-x-1/2">
                 <div
                     onClick={handleBackClick}
-                    className="jelly jelly-increased absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer rounded-8 p-3 text-gray-200 hover:bg-gray-50 hover:text-gray-400 selected:bg-gray-50 selected:text-gray-400"
+                    className="jelly jelly-increased absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer rounded-8 p-3 text-gray-200 hover:bg-gray-700 hover:text-gray-400 selected:bg-gray-50 selected:text-gray-400"
                 >
                     <Icon type="left" className="w-4" />
                 </div>
                 <div className="text-center flex flex-col">
                     {isPost ? (
                         <>
-                            <h2 className=" text-base font-700 text-black dark:text-woodsmoke-100 mx-auto w-2/3 line-clamp-1 overflow-hidden">{chapterTitle}</h2>
-                            <h3 className="text-sm -mt-1 text-woodsmoke-300">{username}</h3>
+                            <h2 className=" text-base font-700 text-woodsmoke-100 mx-auto w-2/3 line-clamp-1 overflow-hidden">
+                                {fullname}
+                            </h2>
+                            <h3 className="text-sm -mt-1 text-woodsmoke-300">
+                                @{username}
+                            </h3>
                         </>
                     ) : (
-                        <h2 className=" text-xl font-700 text-black ">{content}</h2>
+                        <h2 className=" text-xl font-700 text-black ">
+                            {content}
+                        </h2>
                     )}
                 </div>
             </div>
